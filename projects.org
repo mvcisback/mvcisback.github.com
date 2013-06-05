@@ -1,0 +1,32 @@
+* Projects
+** Arcade Cabinet
+** RC Robot
+** RC helicopter
+** Android
+*** [[http://zx2c4.com/projects/password-store/][Password-Store]] password manager
+** Sonotube speakers
+*** Materials
+   - Sonotube
+   - MDF wood
+   - Silicon Caulking
+   - Driver
+   - Cabling
+   - Terminals
+*** Tools
+   - Dremel or Spirial Saw
+*** DONE First Prototype
+    - 4ft
+*** Second Round
+    - Mulitple (ideally 3) 1ft models
+    - Mid's, Hi's, and Low's
+** Mixxx + turn tables
+*** Materials
+   - Serano Timecoded
+   - Direct Drive Turn table
+   - Computer with input audio
+** multitouch table 2.0
+** Automatic door lock
+   https://lockitron.com/preorder
+** The GamePlan
+** Football Tanner
+** Project Bounties
