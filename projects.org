@@ -18,6 +18,9 @@
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.50.3 (<a href="http://orgmode.org">Org</a> mode 8.0.3)
 
 * Projects
+** Buildout Website
+*** For inspiration
+   https://github.com/joshuaeckroth/cse3521-website
 ** Teensy Pass
    https://github.com/teensypass
 *** TODO CLI
