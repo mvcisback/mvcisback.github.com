@@ -18,11 +18,17 @@
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.50.3 (<a href="http://orgmode.org">Org</a> mode 8.0.3)
 
 * Projects
-** Arcade Cabinet
+** Teensy Pass
+   https://github.com/teensypass
+*** TODO CLI
+   https://github.com/TeensyPass/teensycli
+** TODO Arcade Cabinet
 ** RC Robot
+*** First prototype
+    #+ATTR_HTML: width="400px"
+    [[file:img/robot_1.jpg]]
 ** RC helicopter
-** Android
-*** [[http://zx2c4.com/projects/password-store/][Password-Store]] password manager
+*** TODO Build Ros driver
 ** Sonotube speakers
 *** Materials
    - Sonotube
@@ -34,7 +40,8 @@
 *** Tools
    - Dremel or Spirial Saw
 *** DONE First Prototype
-    - 4ft
+    #+ATTR_HTML: width="400px"
+    [[file:img/speaker_4ft.jpg]]
 *** Second Round
     - Mulitple (ideally 3) 1ft models
     - Mid's, Hi's, and Low's
@@ -43,9 +50,12 @@
    - Serano Timecoded
    - Direct Drive Turn table
    - Computer with input audio
-** multitouch table 2.0
-** Automatic door lock
+** multitouch table
+*** DONE First prototype
+    #+ATTR_HTML: width="400px"
+    [[file:img/touch_table_1.jpg]]
+** TODO Automatic door lock
    https://lockitron.com/preorder
-** The GamePlan
-** Football Tanner
-** Project Bounties
+** TODO The GamePlan
+** TODO Football Tanner
+** TODO Project Bounties
