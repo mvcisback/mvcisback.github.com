@@ -1,4 +1,4 @@
-#+STYLE: <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
+#+STYLE: <link rel="stylesheet" href="css/worg.css" type="text/css" media="screen" />
 #+TITLE:     Projects
 #+AUTHOR:    Marcell J. Vazquez-Chanlatte
 #+EMAIL:     mvc@linux.com
