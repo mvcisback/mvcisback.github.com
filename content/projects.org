@@ -1,0 +1,59 @@
+Date: 2010-12-03
+Title: Projects
+Tags: projects
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not LOGBOOK) date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil stat:t tags:t
+#+OPTIONS: tasks:t tex:t gitimestamp:t toc:nil todo:t |:t
+#+CREATOR: Emacs 24.3.1 (Org mode 8.0.3)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+
+* Projects
+** Buildout Website
+*** For inspiration
+   https://github.com/joshuaeckroth/cse3521-website
+** Teensy Pass
+   https://github.com/teensypass
+*** TODO CLI
+   https://github.com/TeensyPass/teensycli
+** TODO Arcade Cabinet
+** RC Robot
+*** First prototype
+    #+ATTR_HTML: width="400px"
+    [[file:img/robot_1.jpg]]
+** RC helicopter
+*** TODO Build Ros driver
+** Sonotube speakers
+*** Materials
+   - Sonotube
+   - MDF wood
+   - Silicon Caulking
+   - Driver
+   - Cabling
+   - Terminals
+*** Tools
+   - Dremel or Spirial Saw
+*** DONE First Prototype
+    #+ATTR_HTML: width="400px"
+    [[file:img/speaker_4ft.jpg]]
+*** Second Round
+    - Mulitple (ideally 3) 1ft models
+    - Mid's, Hi's, and Low's
+** Mixxx + turn tables
+*** Materials
+   - Serano Timecoded
+   - Direct Drive Turn table
+   - Computer with input audio
+** multitouch table
+*** DONE First prototype
+    #+ATTR_HTML: width="400px"
+    [[file:img/touch_table_1.jpg]]
+** TODO Automatic door lock
+   https://lockitron.com/preorder
+** TODO The GamePlan
+** TODO Football Tanner
+** TODO Project Bounties
