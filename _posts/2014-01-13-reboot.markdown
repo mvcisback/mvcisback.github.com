@@ -1,0 +1,16 @@
+---
+layout: post
+title: Reboot
+---
+
+Hi internet...So I've decided to retry this whole blogging thing...
+I've been getting into more and more projects recently, and have been making sure to take pictures so I think this time I'll have alot more content.
+
+While I'm not exactly sure what all is gonna be blog ([blag?](http://xkcd.com/239))
+
+For now here's a picture of a practice pad I thats shoved with piezo's.
+
+![Practice Pad]({{ site.url }}/assets/practice_pad.jpg)
+
+[blag]: http://xkcd.com/239/
+
