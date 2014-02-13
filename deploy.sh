@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-REMOTE="git@github.com:mvcisback/mvcisback.github.io.git"
-SITE="generated/deploy/out"
+REMOTE="git@github.com:mvcisback/mvcisback.github.com.git"
+SITE="_site"
 DEPLOY="deploy/"
 
 info() {
@@ -33,7 +33,7 @@ setup() {
   dir_check
 
   rm -rf $DEPLOY
-  mkdir $DEPLOY
+  mkdir -p $DEPLOY
 
   info "created $DEPLOY"
   cd $DEPLOY
