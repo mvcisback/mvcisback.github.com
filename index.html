@@ -1,13 +1,16 @@
 ---
-layout: default
-title: Sufficiently Random
+title: Home
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+<h2>Welcome</h2>
+
+<img src="/images/haskell-logo.png" style="float: right; margin: 10px;" />
+
+<p>Welcome to my blog!</p>
+
+<p>I've reproduced a list of recent posts here for your reading pleasure:</p>
+
+<h2>Posts</h2>
+$partial("templates/post-list.html")$
+
+<p>…or you can find more in the <a href="/archive.html">archives</a>.
