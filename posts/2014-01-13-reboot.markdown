@@ -10,7 +10,7 @@ While I'm not exactly sure what all is gonna be blogged ([blagged?](http://xkcd.
 
 For now here's a picture of a practice pad I thats shoved with piezo's.
 
-![Practice Pad]({{ site.url }}/assets/practice_pad.jpg)
+![Practice Pad](/images/practice_pad.jpg)
 
 [blag]: http://xkcd.com/239/
 
