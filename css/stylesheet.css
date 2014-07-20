@@ -1,0 +1,237 @@
+
+body
+{
+  margin      : 0px 0px 0px 0px;
+  padding     : 0px 0px 0px 0px;
+  background  : url("../images/bkg.png");
+  color       : rgb(234,234,234);
+  font-size   : 16px;
+  line-height : 150%;
+  font-family : "Monaco","Bitstream Vera Sans Mono","Lucida Console","Terminal", monospace;
+}
+
+section
+{
+  display : block;
+  margin  : 0px 0px 20px 0px;
+}
+
+.container
+{
+  width     : 90%;
+  max-width : 600px;
+  margin    : 0px auto 0px auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+  margin         : 0px 0px 20px 0px;
+  color          : rgb(181,232,83);
+  font-weight    : normal;
+  font-family    : "Monaco","Bitstream Vera Sans Mono","Lucida Console","Terminal", monospace;
+  letter-spacing : -0.03em;
+  text-shadow    : 0px 1px 1px rgba(0,0,0,0.1016);
+}
+
+li
+{
+  line-height : 140%;
+}
+
+header
+{
+  background-color : rgba(0,0,0,0.1016);
+  width            : 100%;
+  border-bottom    : dashed 1px rgb(181,232,83);
+  padding          : 20px 0px 20px 0px;
+  margin           : 0px 0px 40px 0px;
+}
+
+header h1
+{
+  font-size      : 30px;
+  line-height    : 150%;
+  margin         : 0px 0px 0px -40px;
+  font-weight    : bold;
+  font-family    : "Monaco","Bitstream Vera Sans Mono","Lucida Console","Terminal", monospace;
+  color          : rgb(181,232,83);
+  text-shadow    : 0px 1px 1px rgba(0,0,0,0.1016);
+  letter-spacing : -1px;
+}
+
+header h2
+{
+  font-size   : 18px;
+  font-weight : 300;
+  color       : rgb(102,102,102);
+}
+
+#downloads.btn
+{
+  display    : inline-block;
+  text-align : center;
+  margin     : 0px 0px 0px 0px;
+}
+
+#main_content,
+h1
+{
+  font-size : 30px;
+}
+
+#main_content,
+h2
+{
+  font-size : 24px;
+}
+
+#main_content,
+h3
+{
+  font-size : 18px;
+}
+
+#main_content,
+h4
+{
+  font-size : 14px;
+}
+
+#main_content,
+h5
+{
+  font-size      : 12px;
+  text-transform : uppercase;
+  color          : rgb(153,153,153);
+  margin         : 0px 0px 5px 0px;
+}
+
+#main_content,
+h6
+{
+  font-size      : 12px;
+  text-transform : uppercase;
+  color          : rgb(153,153,153);
+  margin         : 0px 0px 5px 0px;
+}
+
+dt
+{
+  font-style  : italic;
+  font-weight : bold;
+}
+
+ul li
+{
+  list-style-type : none;
+}
+
+ul li:before
+{
+  content      : ">>";
+  font-family  : "Monaco","Bitstream Vera Sans Mono","Lucida Console","Terminal", monospace;
+  font-size    : 13px;
+  color        : rgb(181,232,83);
+  margin-left  : -37px;
+  margin-right : 21px;
+  line-height  : 16px;
+}
+
+blockquote
+{
+  color        : rgb(170,170,170);
+  padding-left : 10px;
+  border-left  : dotted 1px rgb(102,102,102);
+}
+
+pre
+{
+  background    : rgba(0,0,0,0.8984);
+  border        : solid 1px rgba(255,255,255,0.1484);
+  padding       : 10px 10px 10px 10px;
+  font-size     : 14px;
+  color         : rgb(181,232,83);
+  border-radius : 2px 2px 2px 2px;
+  overflow      : auto;
+  overflow-y    : hidden;
+}
+
+table
+{
+  width  : 100%;
+  margin : 0px 0px 20px 0px;
+}
+
+th
+{
+  text-align    : left;
+  border-bottom : dashed 1px rgb(181,232,83);
+  padding       : 5px 10px 5px 10px;
+}
+
+td
+{
+  padding : 5px 10px 5px 10px;
+}
+
+hr
+{
+  height        : 0px;
+  border        : dashed 0px rgb(0,0,0);
+  border-bottom : dashed 1px rgb(181,232,83);
+  color         : rgb(181,232,83);
+}
+
+.btn
+{
+  display         : inline-block;
+  padding         : 8px 18px 8px 18px;
+  border-radius   : 50px 50px 50px 50px;
+  border          : solid 2px rgba(0,0,0,0.7031);
+  color           : rgba(255,255,255,0.8008);
+  font-family     : "Helvetica","Arial", sans-serif;
+  font-weight     : bold;
+  font-size       : 13px;
+  text-decoration : none;
+  text-shadow     : 0px -1px 0px rgba(0,0,0,0.7500);
+}
+
+.btn,
+.icon
+{
+  display : inline-block;
+  width   : 16px;
+  height  : 16px;
+  margin  : 1px 8px 0px 0px;
+  float   : left;
+}
+
+.btn-github,
+.icon
+{
+  opacity    : 0.59999;
+  background : url("../images/blacktocat.png");
+}
+
+a
+{
+  color       : rgb(99,192,245);
+  text-shadow : 0px 0px 5px rgba(104,182,255,0.4961);
+}
+
+.footer
+{
+  background : rgba(0,0,0,0.1016);
+  width      : 100%;
+  border-top : dashed 1px rgb(181,232,83);
+  padding    : 20px 0px 20px 0px;
+  margin     : 40px 0px 40px 0px;
+}
+
+
+/* Generated with Clay, http://fvisser.nl/clay */

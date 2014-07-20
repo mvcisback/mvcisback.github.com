@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Sufficiently Random/Teapot</title>
+      <!-- Latest compiled and minified CSS -->
+
+      <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pygment_trac.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pandoc.css" media="screen" />
+    </head>
+
+    <body>
+
+      <header>
+        <div class="container">
+          <h1>~/mvc/<a href="../">sufficiently_random</a>/Teapot</h1>
+        </div>
+        <div><h2></h2></div>
+      </header>
+
+      <div class="container">
+
+          <div class="info">
+    Posted on April 15, 2014
+    
+</div>
+<h2>Teapot</h2>
+<p>If you’re here to see pretty pictures of teapots, skip to the end.</p>
+<h1 id="about-project">About Project</h1>
+<p>This blog post is about my submission for the <a href="http://graphics.cs.illinois.edu/cs418/sp14/mp3">teapot rendering contest</a> for CS418@UIUC. The goal was to render a realistic teapot using various effects. Being a formal methods and functional programming junkie, I searched for a purely functional way to do this in Haskell. What I found was GPipe.</p>
+<p>Source code at: <a href="https://github.com/mvcisback/typesafe_teapot">https://github.com/mvcisback/typesafe_teapot</a></p>
+<h1 id="about-gpipe">About GPIPE</h1>
+<p>Based on the <a href="http://www.haskell.org/haskellwiki/GPipe">Wiki</a>:</p>
+<ul>
+<li>GPipe is an alternative to OpenGl, and has the advantage that it is:
+<ol style="list-style-type: decimal">
+<li>purely functional</li>
+<li>statically typed</li>
+<li>operates on immutable data</li>
+<li>Shaders are written as regular Haskell functions using GPU data types</li>
+</ol></li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<p>The 2 biggest limitations of GPipe’s are lack of support and missing convenience functions. Specifically, all the transformations, lighting, texturing must be done as shaders. While initially a bit of a hindrance, it ultimately allowed me to move far beyond the capabilities of the fixed pipeline (and with greater understanding).</p>
+<h1 id="effects">Effects</h1>
+<p>I ended up implementing both the Phong and Seeliger (seen in the skin textured teapot) lighting models. With texturing, environment mapping, and bump mapping, the teapot is given a variety of looks.</p>
+<h1 id="obj-parsing">Obj Parsing</h1>
+<p>To parse the OBJ I wrote a CFG processed by happy (similar to bison). This allowed me to easily extend the grammar and change the way the data structure returned is presented. ## Testing Cylindrical and Spherical Texturing ## Another benefit of go full out on the parser (for example supporting arbitrary polygon faces) is that I could take output obj’s from blender. Two particularly useful meshes were the Cylinder and the Sphere. These allowed me to easily test the cylindrical and spherical texture mapping (since they don’t get distorted on those shapes).</p>
+<h1 id="future">Future</h1>
+<p>I’m planning on breaking out a bunch of what I ended up writing for this project (Obj Parser and some of the shaders) into a libraries. First things first though I really want to move from Data.Vec to the linear library by Edward Kmett. It seems (like most of his projects) to offer a very clean and mathematically consistent library. GPipe has a strong integration with Data.Vec, so ideally it’d be changed to linear or factored out.</p>
+<h1 id="gallery">Gallery!</h1>
+<p><img src="../images/teapot_bump1_wood.jpg" /> <img src="../images/teapot_bump2_wood.jpg" /> <img src="../images/teapot_skin.jpg" /> <img src="../images/teapot_nobump_metal.jpg" /> <img src="../images/monky_bump2_wood.jpg" /></p>
+
+      </div>
+
+      <div class="footer">
+          <div>
+            Contact: <a href="https://twitter.com/mvcisback">@mvcisback</a>
+            Code: <a href="https://github.com/mvcisback">Github</a>
+          </div>
+          <div>
+            this site = 
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a> + 
+            <a href="http://sundaykofax.github.io/baby-legs/">Theme</a> +
+            <a href="http://pages.github.com/">Github Pages</a> +
+            <a href="https://github.com/mvcisback/mvcisback.github.com">Source</a> +
+            too much time
+          </div>
+      </div>
+    </body>
+</html>
