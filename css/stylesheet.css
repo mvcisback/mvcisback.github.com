@@ -33,7 +33,6 @@ h6
   margin         : 0px 0px 20px 0px;
   color          : rgb(181,232,83);
   font-weight    : normal;
-  font-family    : "Monaco","Bitstream Vera Sans Mono","Lucida Console","Terminal", monospace;
   letter-spacing : -0.03em;
   text-shadow    : 0px 1px 1px rgba(0,0,0,0.1016);
 }
@@ -50,6 +49,7 @@ header
   border-bottom    : dashed 1px rgb(181,232,83);
   padding          : 20px 0px 20px 0px;
   margin           : 0px 0px 40px 0px;
+  text-align       : center;
 }
 
 header h1
@@ -58,8 +58,6 @@ header h1
   line-height    : 150%;
   margin         : 0px 0px 0px -40px;
   font-weight    : bold;
-  font-family    : "Monaco","Bitstream Vera Sans Mono","Lucida Console","Terminal", monospace;
-  color          : rgb(181,232,83);
   text-shadow    : 0px 1px 1px rgba(0,0,0,0.1016);
   letter-spacing : -1px;
 }
@@ -69,13 +67,6 @@ header h2
   font-size   : 18px;
   font-weight : 300;
   color       : rgb(102,102,102);
-}
-
-#downloads.btn
-{
-  display    : inline-block;
-  text-align : center;
-  margin     : 0px 0px 0px 0px;
 }
 
 #main_content,
@@ -134,7 +125,6 @@ ul li
 ul li:before
 {
   content      : ">>";
-  font-family  : "Monaco","Bitstream Vera Sans Mono","Lucida Console","Terminal", monospace;
   font-size    : 13px;
   color        : rgb(181,232,83);
   margin-left  : -37px;
@@ -187,37 +177,6 @@ hr
   color         : rgb(181,232,83);
 }
 
-.btn
-{
-  display         : inline-block;
-  padding         : 8px 18px 8px 18px;
-  border-radius   : 50px 50px 50px 50px;
-  border          : solid 2px rgba(0,0,0,0.7031);
-  color           : rgba(255,255,255,0.8008);
-  font-family     : "Helvetica","Arial", sans-serif;
-  font-weight     : bold;
-  font-size       : 13px;
-  text-decoration : none;
-  text-shadow     : 0px -1px 0px rgba(0,0,0,0.7500);
-}
-
-.btn,
-.icon
-{
-  display : inline-block;
-  width   : 16px;
-  height  : 16px;
-  margin  : 1px 8px 0px 0px;
-  float   : left;
-}
-
-.btn-github,
-.icon
-{
-  opacity    : 0.59999;
-  background : url("../images/blacktocat.png");
-}
-
 a
 {
   color       : rgb(99,192,245);
@@ -226,11 +185,10 @@ a
 
 .footer
 {
-  background : rgba(0,0,0,0.1016);
-  width      : 100%;
   border-top : dashed 1px rgb(181,232,83);
   padding    : 20px 0px 20px 0px;
   margin     : 40px 0px 40px 0px;
+  text-align : center;
 }
 
 
