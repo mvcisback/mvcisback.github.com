@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Sufficiently Random/Over Engineered SVGs</title>
+      <!-- Latest compiled and minified CSS -->
+
+      <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pygment_trac.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pandoc.css" media="screen" />
+    </head>
+
+    <body>
+
+      <header>
+        <div class="container">
+          <h1>~/mvc/<a href="../">sufficiently_random</a>/Over Engineered SVGs</h1>
+        </div>
+        <div><h2></h2></div>
+      </header>
+
+      <div class="container">
+
+          <div class="info">
+    Posted on August 19, 2014
+    
+</div>
+<h2>Over Engineered SVGs</h2>
+<p>For my upcoming intern presentation, I’ve started playing with the (diagrams)[http://projects.haskell.org/diagrams/] DSL again.</p>
+<p>I specifically 2 diagrams for 2 pipelines. Rather than just opening up inkscape and making the chart (a process that would likely have taken 10 minutes), I instead opted to write the following Haskell code to generate the pipeline svg.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">node name text' <span class="fu">=</span> square <span class="dv">1</span> <span class="st"># named name</span>
+            <span class="ot">`atop`</span>
+            text text' <span class="st"># scale (1/4)</span>
+
+<span class="ot">createChain ::</span> [<span class="dt">String</span>] <span class="ot">-&gt;</span> <span class="dt">QDiagram</span> <span class="dt">B</span> <span class="dt">R2</span> <span class="dt">Any</span>
+createChain nodes <span class="fu">=</span> strutX <span class="dv">0</span><span class="fu">.</span><span class="dv">2</span> <span class="fu">|||</span> arrows chart <span class="fu">|||</span> strutX <span class="dv">0</span><span class="fu">.</span><span class="dv">2</span>
+    <span class="kw">where</span>
+       chart <span class="fu">=</span> hcat <span class="fu">$</span> intersperse (strutX <span class="dv">1</span>) nodes'
+       arrows <span class="fu">=</span> foldr (<span class="fu">.</span>) id arrows'
+       arrows' <span class="fu">=</span> zipWith connectOutside idents (tail idents)
+       idents <span class="fu">=</span> map show [<span class="dv">1</span><span class="fu">..</span>(length nodes)]
+       pairWise <span class="fu">=</span> zip idents (tail idents)
+       nodes' <span class="fu">=</span> zipWith node idents nodes</code></pre>
+<p>For the input <code>[&quot;x&quot;, &quot;y&quot;, &quot;z&quot;]</code> this generates</p>
+<div class="figure">
+<img src="images/chain.svg" alt="x-&gt;y-&gt;z" /><p class="caption">x-&gt;y-&gt;z</p>
+</div>
+<p>Was it worth it? Probably not… Is it cool? I think so, otherwise I wouldn’t have posted it. :p</p>
+
+      </div>
+
+      <div class="footer">
+          <div>
+            Contact: <a href="https://twitter.com/mvcisback">@mvcisback</a>
+            Code: <a href="https://github.com/mvcisback">Github</a>
+          </div>
+          <div>
+            this site = 
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a> + 
+            <a href="http://sundaykofax.github.io/baby-legs/">Theme</a> +
+            <a href="http://pages.github.com/">Github Pages</a> +
+            <a href="https://github.com/mvcisback/mvcisback.github.com">Source</a> +
+            too much time
+          </div>
+      </div>
+    </body>
+</html>
