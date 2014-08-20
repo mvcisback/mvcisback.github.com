@@ -28,6 +28,6 @@ createChain nodes = strutX 0.2 ||| arrows chart ||| strutX 0.2
 
 For the input `["x", "y", "z"]` this generates
 
-![x->y->z](/images/chain.svg)
+![](/images/chain.svg)
 
 Was it worth it? Probably not... Is it cool? I think so, otherwise I wouldn't have posted it. :p
