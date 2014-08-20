@@ -6,7 +6,7 @@ title: Over_Engineered_SVGs
 For my upcoming intern presentation, I've started playing with the [diagrams](http://projects.haskell.org/diagrams/)
 DSL again.
 
-I specifically 2 diagrams for 2 pipelines. Rather than just opening up inkscape and making the chart
+I needed 2 diagrams representing pipelines. Rather than just opening up inkscape and making the chart
 (a process that would likely have taken 10 minutes), I instead opted to write the following Haskell
 code to generate the pipeline svg.
 
