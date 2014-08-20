@@ -191,5 +191,11 @@ a
   text-align : center;
 }
 
+img
+{
+  background-color : rgb(255,255,255);
+  width            : 100%;
+}
+
 
 /* Generated with Clay, http://fvisser.nl/clay */
