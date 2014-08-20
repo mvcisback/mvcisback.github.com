@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Over Engineered SVGs
+title: Over_Engineered_SVGs
 ---
 
 For my upcoming intern presentation, I've started playing with the (diagrams)[http://projects.haskell.org/diagrams/]
