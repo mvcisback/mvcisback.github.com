@@ -3,7 +3,7 @@ layout: post
 title: Over_Engineered_SVGs
 ---
 
-For my upcoming intern presentation, I've started playing with the (diagrams)[http://projects.haskell.org/diagrams/]
+For my upcoming intern presentation, I've started playing with the [diagrams](http://projects.haskell.org/diagrams/)
 DSL again.
 
 I specifically 2 diagrams for 2 pipelines. Rather than just opening up inkscape and making the chart
