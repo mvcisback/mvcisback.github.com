@@ -140,4 +140,5 @@ myStylesheet = myBody
                >> myHR
                >> myLink
                >> myFooter
+               >> (img ? (backgroundColor white >> width (pct 100)))
 
