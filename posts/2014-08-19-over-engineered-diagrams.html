@@ -30,7 +30,7 @@
 </div>
 <h2>Over_Engineered_SVGs</h2>
 <p>For my upcoming intern presentation, I’ve started playing with the <a href="http://projects.haskell.org/diagrams/">diagrams</a> DSL again.</p>
-<p>I specifically 2 diagrams for 2 pipelines. Rather than just opening up inkscape and making the chart (a process that would likely have taken 10 minutes), I instead opted to write the following Haskell code to generate the pipeline svg.</p>
+<p>I needed 2 diagrams representing pipelines. Rather than just opening up inkscape and making the chart (a process that would likely have taken 10 minutes), I instead opted to write the following Haskell code to generate the pipeline svg.</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell">node name text' <span class="fu">=</span> square <span class="dv">1</span> <span class="st"># named name</span>
             <span class="ot">`atop`</span>
             text text' <span class="st"># scale (1/4)</span>
