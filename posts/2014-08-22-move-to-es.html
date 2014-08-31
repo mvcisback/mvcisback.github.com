@@ -29,38 +29,39 @@
     
 </div>
 <h2>Moving_DXR_to_Elastic_Search</h2>
-<p>DXR is moving from SQLite + Trillite<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> to Elastic Search. The DXR wiki documents the reasons for changing<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, but the reasons relevant to this post are:</p>
+<p>DXR is moving from SQLite + Trillite<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> to Elastic Search. The DXR <a href="https://wiki.mozilla.org/DXR_Storages#Elasticsearch">wiki</a> documents the reasons for changing, but the reasons relevant to this post are:</p>
 <ul>
 <li>clean line based search</li>
 <li>sparse attribute storage</li>
 <li>incredibly flexible query and filter system</li>
 </ul>
 <h2 id="line-based-search">Line Based Search</h2>
-<p>Line based allows us to display only the relevant lines. DXR already supported it to some extent, but this involved byte offset black magic. We’ve gone ahead and done away with any such witchcraft in favor of the fickle mistress that is Elastic Search. Now we can just annotate a line with multiple tags, and then use the inverted index to query for it later.</p>
+<p>Line based allows us to display only the relevant lines. DXR already supported this to some extent, but involved byte offset black magic. We’ve gone ahead and done away with any such witchcraft in favor of line based indexing in Elastic Search. Now we can just annotate a line with multiple tags and use the inverted index to query for it later.</p>
 <h2 id="sparse-attribute-storage">Sparse Attribute Storage</h2>
-<p>When I mentioned tagging before, this refered to marking an Elastic Search document. These documents are you standard NoSQL json blobs of structured data. By making the distinction between a “c-function” and “js-function” tag, we’re able to easily implement <em>multi language support</em>! Banzai!</p>
+<p>When I mentioned tagging before, this referred to marking an Elastic Search document. These documents are standard NoSQL JSON blobs of structured data. By making the distinction between a “c-function” and “js-function” tag, we’re able to easily implement <em>multi language support</em>! Banzai!</p>
 <h2 id="elastic-searches-query-dsl">Elastic Searches Query DSL</h2>
-<p>Finally, elastic searches Token Analyzers and Query DSL allow us to design incredibly sophisticated queries. <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
-<h2 id="plugin-infrastructure-and-the-c-plugin">Plugin Infrastructure and the C Plugin</h2>
-<h3 id="untangling-the-backend-from-sqlite">Untangling the backend from SQLite</h3>
+<p>Finally, elastic searches Token Analyzers and Query DSL allow us to design incredibly sophisticated queries. <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> ## Plugin Infrastructure and the C Plugin ##</p>
+<h3 id="untangling-the-back-end-from-sqlite">Untangling the back-end from SQLite</h3>
 <div class="figure">
 <img src="../images/spaghetti.gif" />
 </div>
-<p>So I’d like to quickly run through the Clang Plugin at a conceptual level, a model that as my statistical mechanics professor used to say “captures the essential physics”.</p>
+<p>So I’d like to quickly run through the Clang Plugin at a conceptual level.</p>
 <div class="figure">
 <img src="../images/indexer.svg" />
 </div>
-<p>We hook into the clang compiler to abstract the abstract syntax tree, returns meta data such as variable references, call sites, declarations, inheritance structure. Those get transformed into Key Value pairs dubbed needles which are organized by line. DxR then sends those off to Elastic Search for indexing.</p>
+<p>We first hook into the clang compiler to extract the abstract syntax tree (AST). We traverse the tree (multiple passes in some cases) fathering meta-data such as variable references, call sites, declarations, inheritance structure. The meta-data gets serialized as Key Value pairs dubbed “needles”<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> which are organized by line. DXR then sends the needles off to Elastic Search for indexing.</p>
 <div class="figure">
 <img src="../images/query.svg" />
 </div>
-<p>At that point we can use dxr’s inverted index to quickly search the codebase, ranking by relevancy. Easy Peasy</p>
+<p>Next comes actually searching for the “needles”. This works by first submiting querying using DXR’s frontend. The query is transformed into a set of needles, which can be searched for using Elastic Search’s inverted index, Elastic Search will return a line and potentially a rank (depends on the type of query).</p>
+<p>An important thing to note is that aside from retrieving the meta-data from Clang, allot of the process is language agnostic. This should accelerate the process of adding more support languages such as Rust<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> and Python.</p>
 <div class="footnotes">
 <hr />
 <ol>
 <li id="fn1"><p>A trigram indexer written for DXR<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Other big reasons include caching of intermediate filter results, “did you mean” autocomplete, and bunch of other stuff<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>As we’ll see in a bit with type search, contorting ES to your will really comes down to playing with these two components.<a href="#fnref3">↩</a></p></li>
+<li id="fn2"><p>As we’ll see in a bit with type search, contorting ES to your will really comes down to playing with these two components.<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Erik calls them needles in a haystack<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>Actually, there is a patch for Rust support using the old SQLite backend…hopefully its not too bit rotted<a href="#fnref4">↩</a></p></li>
 </ol>
 </div>
 
