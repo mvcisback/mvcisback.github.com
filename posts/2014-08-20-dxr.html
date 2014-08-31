@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Sufficiently Random/DxR</title>
+      <!-- Latest compiled and minified CSS -->
+
+      <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pygment_trac.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pandoc.css" media="screen" />
+    </head>
+
+    <body>
+
+      <header>
+        <div class="container">
+          <h1>~/mvc/<a href="../">sufficiently_random</a>/DxR</h1>
+        </div>
+        <div><h2></h2></div>
+      </header>
+
+      <div class="container">
+
+          <div class="info">
+    Posted on August 20, 2014
+    
+</div>
+<h2>DxR</h2>
+<div class="figure">
+<img src="../images/dXr.png" />
+</div>
+<p>This blog post is a supplement to my recent <a href="https://air.mozilla.org/js-support-moving-to-elastic-search-and-searching-using-types/">presentation</a> about the new features coming to DXR. I felt the need to duplicate much of the talk here, because I <strong><em>hate</em></strong> “PowerPoint”<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> presentations<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. As such, there is allot of overlap in content, but this post aims to be more in-depth, more coherent, and may be updated as features in DXR change (although always check the <a href="https://wiki.mozilla.org/DXR">wiki</a> and <a href="https://github.com/mozilla/dxr">github</a> for the most up to date changes!).</p>
+<p>In the this and the next 3 blog posts I’ll cover</p>
+<ol style="list-style-type: decimal">
+<li><a href="../posts/2014-08-22-move-to-es.html">Changing the back-end to Elastic Search</a>,</li>
+<li><a href="../posts/2014-08-22-type-search.html">Type Search</a>,</li>
+<li><a href="../posts/2014-08-22-javascript.html">JavaScript Support</a>.</li>
+</ol>
+<p>For an in-depth look at what DXR is, head over to the <a href="https://dxr.readthedocs.org/en/latest/">readthedocs</a>.</p>
+<p>This post gives a quick run down on what you need to know about DXR for the following posts.</p>
+<h1 id="tldr-what-is-dxr">TL;DR: What is DXR</h1>
+<div class="figure">
+<img src="../images/duhhh.gif" />
+</div>
+<p>DXR is a code search and cross reference tool. It allows you to inspect and explore large code bases (like Firefox) by querying for meta-data such as variable names, inheritance structure, function signatures/API, etc.</p>
+<p>The primary interface for DXR is the <a href="http://dxr.mozilla.org/mozilla-central/source/">web-app</a> <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> pictured below, which consists of a search bar, filter query language, and clickable references.</p>
+<p>DXR itself stands for Dehydra Cross Reference… which in my opinion is a terrible name. If you can think of a better one <strong>PLEASE</strong> let me (or anyone in #static) know!!! (<span class="citation">@mvcisback</span> on twitter)</p>
+<div class="figure">
+<img src="https://dxr.readthedocs.org/en/latest/_images/screenshot.png" />
+</div>
+<h2 id="related-projects">Related Projects</h2>
+<p>DXR is intended to succeed MXR (Mozilla Cross Reference) and Dehydra. In addition to its predecessors, there are a number of projects</p>
+<h3 id="sourcegraph">SourceGraph</h3>
+<p>SourceGraph is an open source project with <strong>allot</strong> of overlap with DXR<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>. Currently supported languages are Python, Ruby, Nodejs, and Go (which is completely disjoint language coverage from DXR’s C and Mozilla JavaScript support). That said, I feel that this overlap is worth looking into.</p>
+<h3 id="hoogle">Hoogle</h3>
+<p>Hoogle is a API search tool for Haskell that focuses on type signatures for queries (I could talk for awhile about the issues involved with getting it work with C, but I’ll spare you).</p>
+<h3 id="hayoo">Hayoo</h3>
+<p>Hayoo is a Holumbus based Haskell code search tool similar to Hoogle (their site even notes this), but with less of a type search focus. In fact, the paper describing Holumbus’ indexer even mentions Lucene (Elastic Search’s back-end) as an alternative. That said, I’ve looked at it and it might be feasible to get alternative language support.</p>
+<h1 id="getting-involved">Getting involved!</h1>
+<ul id="developers">
+<li>
+Developers!
+</li>
+<li>
+Developers!
+</li>
+<li>
+Developers!
+</li>
+<li>
+Developers!
+</li>
+<li>
+Developers!
+</li>
+</ul>
+
+<p><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></p>
+<p>If you want to get involved with DXR or just ask questions, join us on #static on irc.mozilla.org. Again see the <a href="https://dxr.readthedocs.org/en/latest/">readthedocs</a> for more details</p>
+<ul>
+<li>Marcell V.C</li>
+</ul>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>I actually use <a href="http://lab.hakim.se/reveal-js/#">reveal.js</a> . Its the most usable (and version controllable) slideshow software I’ve found.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Gettysburg address in PPT <a href="http://norvig.com/Gettysburg/sld001.htm">http://norvig.com/Gettysburg/sld001.htm</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Also, I can do little side rants like this!!!<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>Work has been done(mainly on the SQLite branches) for integrating it with text editors<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>Although cards on the table, the UI is alot nicer than DXR’s atm<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>Shout out to mythmon for helping make this CSS animation<a href="#fnref6">↩</a></p></li>
+</ol>
+</div>
+
+      </div>
+
+      <div class="footer">
+          <div>
+            Contact: <a href="https://twitter.com/mvcisback">@mvcisback</a>
+            Code: <a href="https://github.com/mvcisback">Github</a>
+          </div>
+          <div>
+            this site = 
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a> + 
+            <a href="http://sundaykofax.github.io/baby-legs/">Theme</a> +
+            <a href="http://pages.github.com/">Github Pages</a> +
+            <a href="https://github.com/mvcisback/mvcisback.github.com">Source</a> +
+            too much time
+          </div>
+      </div>
+    </body>
+</html>

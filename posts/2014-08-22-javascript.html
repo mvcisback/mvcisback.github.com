@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Sufficiently Random/JavaScript Support in DXR</title>
+      <!-- Latest compiled and minified CSS -->
+
+      <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pygment_trac.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pandoc.css" media="screen" />
+    </head>
+
+    <body>
+
+      <header>
+        <div class="container">
+          <h1>~/mvc/<a href="../">sufficiently_random</a>/JavaScript Support in DXR</h1>
+        </div>
+        <div><h2></h2></div>
+      </header>
+
+      <div class="container">
+
+          <div class="info">
+    Posted on August 22, 2014
+    
+</div>
+<h2>JavaScript Support in DXR</h2>
+<h1 id="javascript-type-inference">JavaScript Type Inference</h1>
+<p>Two step algorithm for inferring JavaScript Types</p>
+<h2 id="step-1-dont">Step 1) Don’t</h2>
+<p>By this I mean a 2 things. First, essiental to recognize just how hard a problem this is. Tempting as it may be to approach it naively, Javascript is a very dynamic language… without some kind of executable semantics, many tools end up being incorrect and based on the authors adhoc understanding of the spec. 2nd, you can always get types from source code annotations. I’ve found typescript definition files to work pretty well, and there are quite a few of them for common libraries. At the end of the day, after indexing it doesn’t matter how the types were acquired.</p>
+<h2 id="step-2-cheat">Step 2) Cheat</h2>
+<p>Fact DxR isn’t a compiler. That means it doesn’t <em>have</em> to have sound type inference. Its ok if we’re alittle optimistic with our type inference. Ternjs and alot of other Javascript tooling leverage this fact, and are alittle more optimistic than ionmonkey.</p>
+<p>In fact, much of the DxR’s JavaScript support currently comes from a ternjs plugin. Benefits include: 1. its already implemnted 2. has a community 3. no immediate costs to maintain 4. when the ES6 spec finally get standardized…it’ll likely get support.</p>
+<h1 id="javascript-plugin">JavaScript Plugin</h1>
+<h2 id="ternjs">Ternjs</h2>
+<h2 id="spiderflunky">SpiderFlunky</h2>
+<p>We always developed a tool called Spiderflunky. Its written in python (because that’s what DxR is written in), and uses Spidermonkey’s Reflect.parse to get the AST (similar to app validator). Its mainly a way to harvest other data out of the AST that’s a pain to get out of ternjs (not impossible but, introduces a good deal of complexity). If it become full feature enough, it might just replace all the features of ternjs, but don’t get your hopes up.</p>
+<p><Depending on Time talk about how spiderflunky works></p>
+
+      </div>
+
+      <div class="footer">
+          <div>
+            Contact: <a href="https://twitter.com/mvcisback">@mvcisback</a>
+            Code: <a href="https://github.com/mvcisback">Github</a>
+          </div>
+          <div>
+            this site = 
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a> + 
+            <a href="http://sundaykofax.github.io/baby-legs/">Theme</a> +
+            <a href="http://pages.github.com/">Github Pages</a> +
+            <a href="https://github.com/mvcisback/mvcisback.github.com">Source</a> +
+            too much time
+          </div>
+      </div>
+    </body>
+</html>

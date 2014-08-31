@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Sufficiently Random/Moving_DXR_to_Elastic_Search</title>
+      <!-- Latest compiled and minified CSS -->
+
+      <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pygment_trac.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="../css/pandoc.css" media="screen" />
+    </head>
+
+    <body>
+
+      <header>
+        <div class="container">
+          <h1>~/mvc/<a href="../">sufficiently_random</a>/Moving_DXR_to_Elastic_Search</h1>
+        </div>
+        <div><h2></h2></div>
+      </header>
+
+      <div class="container">
+
+          <div class="info">
+    Posted on August 22, 2014
+    
+</div>
+<h2>Moving_DXR_to_Elastic_Search</h2>
+<p>DXR is moving from SQLite + Trillite<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> to Elastic Search. The DXR wiki documents the reasons for changing<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, but the reasons relevant to this post are:</p>
+<ul>
+<li>clean line based search</li>
+<li>sparse attribute storage</li>
+<li>incredibly flexible query and filter system</li>
+</ul>
+<h2 id="line-based-search">Line Based Search</h2>
+<p>Line based allows us to display only the relevant lines. DXR already supported it to some extent, but this involved byte offset black magic. We’ve gone ahead and done away with any such witchcraft in favor of the fickle mistress that is Elastic Search. Now we can just annotate a line with multiple tags, and then use the inverted index to query for it later.</p>
+<h2 id="sparse-attribute-storage">Sparse Attribute Storage</h2>
+<p>When I mentioned tagging before, this refered to marking an Elastic Search document. These documents are you standard NoSQL json blobs of structured data. By making the distinction between a “c-function” and “js-function” tag, we’re able to easily implement <em>multi language support</em>! Banzai!</p>
+<h2 id="elastic-searches-query-dsl">Elastic Searches Query DSL</h2>
+<p>Finally, elastic searches Token Analyzers and Query DSL allow us to design incredibly sophisticated queries. <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+<h2 id="plugin-infrastructure-and-the-c-plugin">Plugin Infrastructure and the C Plugin</h2>
+<h3 id="untangling-the-backend-from-sqlite">Untangling the backend from SQLite</h3>
+<div class="figure">
+<img src="../images/spaghetti.gif" />
+</div>
+<p>So I’d like to quickly run through the Clang Plugin at a conceptual level, a model that as my statistical mechanics professor used to say “captures the essential physics”.</p>
+<div class="figure">
+<img src="../images/indexer.svg" />
+</div>
+<p>We hook into the clang compiler to abstract the abstract syntax tree, returns meta data such as variable references, call sites, declarations, inheritance structure. Those get transformed into Key Value pairs dubbed needles which are organized by line. DxR then sends those off to Elastic Search for indexing.</p>
+<div class="figure">
+<img src="../images/query.svg" />
+</div>
+<p>At that point we can use dxr’s inverted index to quickly search the codebase, ranking by relevancy. Easy Peasy</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>A trigram indexer written for DXR<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Other big reasons include caching of intermediate filter results, “did you mean” autocomplete, and bunch of other stuff<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>As we’ll see in a bit with type search, contorting ES to your will really comes down to playing with these two components.<a href="#fnref3">↩</a></p></li>
+</ol>
+</div>
+
+      </div>
+
+      <div class="footer">
+          <div>
+            Contact: <a href="https://twitter.com/mvcisback">@mvcisback</a>
+            Code: <a href="https://github.com/mvcisback">Github</a>
+          </div>
+          <div>
+            this site = 
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a> + 
+            <a href="http://sundaykofax.github.io/baby-legs/">Theme</a> +
+            <a href="http://pages.github.com/">Github Pages</a> +
+            <a href="https://github.com/mvcisback/mvcisback.github.com">Source</a> +
+            too much time
+          </div>
+      </div>
+    </body>
+</html>
