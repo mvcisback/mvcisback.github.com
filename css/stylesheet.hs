@@ -119,7 +119,30 @@ myFooter = star # byClass "footer" ?
            do borderTop dashed (px 1) myColor
               sym2 padding (px 20) 0
               margin (px 40) 0 (px 40) 0
-              textAlign $ center
+              textAlign $ alignSide sideCenter
+
+developers = "#developers" ? do
+               listStyleType none
+               fontSize (px 85)
+               overflow hidden
+               border solid (px 1) "#000"
+               textAlign $ alignSide sideCenter
+               height (px 360)
+               lineHeight (px 60)
+               sym margin (px 0)
+
+             >> "#developers" ** li ? do
+                  animation "cycle" (sec 10) linear (sec 0) infinite normal none
+                  sym padding (px 0)
+                  sym margin (px 0)
+
+             >> "#developers" ** li # before ? do
+                   content $ stringContent ""
+
+             >> keyframesFromTo "cycle" t1 t2
+
+    where t1 = transform $ translate (px 0) (px 0) :: Css
+          t2 = transform $ translate (px 0) (px (-120)) :: Css
 
 myStylesheet :: Css
 myStylesheet = myBody
@@ -141,4 +164,4 @@ myStylesheet = myBody
                >> myLink
                >> myFooter
                >> (img ? (backgroundColor white >> width (pct 100)))
-
+               >> developers
