@@ -16,7 +16,7 @@ abstract: |
 
 # Motivation
 
-![]( images/OnPath.png)
+![]( /images/OnPath.png)
 
 The memoryless single sensor "line" following automata is among the first robotics projects
 students encounter (indeed this author has encountered numerous variations[^6]). When encountering 
@@ -58,7 +58,7 @@ better supports directly modeling the environment (and how slight deviations fro
 the resulting kinematics).
 
 # Dynamics
-![Robot Diagram](images/roomba.png)
+![Robot Diagram](/images/roomba.png)
 
 ## Conservative Dynamics
 
@@ -149,7 +149,7 @@ For convenience in the automata below, $\dot{\mathbf{a}} \equiv \left[\begin{mat
 
 # Trail Following Automata
 
-![Model with implicit velocity sensor](images/model1.png)
+![Model with implicit velocity sensor](/images/model1.png)
 
 In this section I shall propose a hybrid automata model (illustrated in fig 3) for our trail following robot.
 To derive the automata consider the following pseudo code for controlling the high level kinematics of the 
@@ -197,7 +197,7 @@ Finally, for convenience in the analytic analysis, quiescent initial conditions 
 
 ## Implicit velocity sensor
 
-![No velocity sensor](images/model2.png)
+![No velocity sensor](/images/model2.png)
 
 One issue with the current model is it implies the existence of a velocity 
 sensor (in the $|\mathbf{v}| = 0$ guard on leaving the stop state). Note 
@@ -336,7 +336,7 @@ the geometry and topology of a Trail.
 
 ## What makes for a good trail
 
-![3x3 grid of trails](images/paths.png )
+![3x3 grid of trails](/images/paths.png )
 
 First let us address the question as to what exactly is a trail. 
 As mentioned in the motivation section, we shall focus on trails
@@ -481,7 +481,7 @@ that while general solutions exist, they are relatively impractical and/or proba
 
 ## Dynamical Billiards
 
-![http://en.wikipedia.org/wiki/File:BunimovichStadium.svg](images/BunimovichStadium.png)
+![http://en.wikipedia.org/wiki/File:BunimovichStadium.svg](/images/BunimovichStadium.png)
 
 Dynamical Billiards [@hbilliards] [@elastic] [@chaos] is the study of a generalized billiards game
 with arbitrary boundaries. It is included here mostly for completeness, and because its literature 
@@ -574,7 +574,7 @@ $\square$
 
 # Worked Example: Straight line case #
 
-![](images/example_execution.png ) 
+![](/images/example_execution.png ) 
 
 Let us work out explicitly the most trivial case (that of a straight) trail.
 
