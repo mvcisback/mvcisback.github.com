@@ -11,6 +11,8 @@
       <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="../css/pygment_trac.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="../css/pandoc.css" media="screen" />
+
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
 
     <body>
@@ -36,7 +38,7 @@
             text text' <span class="st"># scale (1/4)</span>
 
 <span class="ot">createChain ::</span> [<span class="dt">String</span>] <span class="ot">-&gt;</span> <span class="dt">QDiagram</span> <span class="dt">B</span> <span class="dt">R2</span> <span class="dt">Any</span>
-createChain nodes <span class="fu">=</span> strutX <span class="dv">0</span><span class="fu">.</span><span class="dv">2</span> <span class="fu">|||</span> arrows chart <span class="fu">|||</span> strutX <span class="dv">0</span><span class="fu">.</span><span class="dv">2</span>
+createChain nodes <span class="fu">=</span> strutX <span class="fl">0.2</span> <span class="fu">|||</span> arrows chart <span class="fu">|||</span> strutX <span class="fl">0.2</span>
     <span class="kw">where</span>
        chart <span class="fu">=</span> hcat <span class="fu">$</span> intersperse (strutX <span class="dv">1</span>) nodes'
        arrows <span class="fu">=</span> foldr (<span class="fu">.</span>) id arrows'

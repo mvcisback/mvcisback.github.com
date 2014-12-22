@@ -5,19 +5,21 @@
       <meta charset="utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Sufficiently Random/Art &amp; Diagrams</title>
+      <title>Sufficiently Random/Art & Diagrams</title>
       <!-- Latest compiled and minified CSS -->
 
       <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="../css/pygment_trac.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="../css/pandoc.css" media="screen" />
+
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
 
     <body>
 
       <header>
         <div class="container">
-          <h1>~/mvc/<a href="../">sufficiently_random</a>/Art &amp; Diagrams</h1>
+          <h1>~/mvc/<a href="../">sufficiently_random</a>/Art & Diagrams</h1>
         </div>
         <div><h2></h2></div>
       </header>
@@ -28,7 +30,7 @@
     Posted on February 20, 2014
     
 </div>
-<h2>Art &amp; Diagrams</h2>
+<h2>Art & Diagrams</h2>
 <p>For my intro to art class we need to bring in a 5“x7” image with a grid overlayed onto it. I certainly didn’t want it by hand so I turned to the Haskell Diagrams DSL.</p>
 <p>This took me ~10 minutes to get working. I first went with a vbar approach, but didn’t like the way it ended up. While I could have spent time fiddling with the line params, I decided to try to actually build the grid out of squares :p. Here’s the result:</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">{-# LANGUAGE NoMonomorphismRestriction #-}</span>
@@ -37,7 +39,7 @@
 <span class="kw">import </span><span class="dt">Diagrams.Backend.Cairo.CmdLine</span>
 <span class="kw">import </span><span class="dt">Diagrams.TwoD.Image</span>
 
-<span class="ot">world ::</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">Diagram</span> <span class="dt">B</span> <span class="dt">R2</span>
+<span class="ot">world ::</span> FilePath <span class="ot">-&gt;</span> <span class="dt">Diagram</span> <span class="dt">B</span> <span class="dt">R2</span>
 world path <span class="fu">=</span> grid <span class="fu">&lt;&gt;</span> picture
     <span class="kw">where</span> squares <span class="fu">=</span> (hcat <span class="fu">$</span> replicate <span class="dv">5</span> (square <span class="dv">1</span>))
           grid <span class="fu">=</span> (vcat <span class="fu">$</span> replicate <span class="dv">7</span> squares) <span class="st"># centerXY</span>
