@@ -35,9 +35,9 @@
 <h2>Single Sensor Memoryless Trail Following Automatas</h2>
 <h1 id="motivation">Motivation</h1>
 <div class="figure">
-<img src="../images/OnPath.png" />
+<img src="images/OnPath.png" />
 </div>
-<p>The memoryless single sensor “line” following automata is among the first robotics projects students encounter (indeed this author has encountered numerous variations<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>). When encountering a boundary, the robot reacts to correct its course and carries on. However, as is often the case, implementation is vastly easier than formal modeling and verification of the problem. While not having a memory to map out and record the boundaries of the “line” simplifies the algorithm’s implementation, as we shall see, without proper care the non-linear dynamics of these automata are easily subject to deterministic chaos. Even after carefully constructing our hybrid automata to have easily computable (and trivially simulatable dynamics), we find that chaos still emerges. Simulation based verification for some trails the becomes a futile task. Nevertheless, many practical and physical trails remain approachable both from analytic and simulation based perspective.</p>
+<p>The memoryless single sensor “line” following automata is among the first robotics projects students encounter (indeed this author has encountered numerous variations<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>). When encountering a boundary, the robot reacts to correct its course and carries on. However, as is often the case, implementation is vastly easier than formal modeling and verification of the problem. While not having a memory to map out and record the boundaries of the “line” simplifies the algorithm’s implementation, as we shall see, without proper care the non-linear dynamics of these automata are easily subject to deterministic chaos. Even after carefully constructing our hybrid automata to have easily computable (and trivially simulatable dynamics), we find that chaos still emerges. Simulation based verification for some trails becomes a futile task. Nevertheless, many practical and physical trails remain approachable both from analytic and simulation based perspective.</p>
 <p>As one might expect, simple path following automata are very well studied, particularly in the context of mapping <span class="citation">[@disk-explore]</span>. But such automata and many like it, exploit memory to make deliberate decision for path planning, eliminating many of the interesting nuances that lead to unstable blowup in the model. Furthermore, many path following robots are gifted with comparatively richer sensor arrays. Indeed, tasks that may prove trivial given even one additional sensor, become unfeasible in general case<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Lastly, much of the compared literature focuses on the kinematics rather than the dynamics of the robot. The approach here focuses on the dynamics which both aligns better with the actual controls of physical robots, and more directly allows perturbations in the motions due to uneven friction, forcing, or inclination.</p>
 <h2 id="line-vs-path-vs-trail">Line vs Path vs Trail</h2>
 <p>In the course of studying this problem, to avoid collision with other nomenclature in topology and geometry, this author settled upon trail for describing what might otherwise commonly be refereed to as a line or a path. We shall expand on the precise nature of trails later, but for now the simple intuitions one might have shall suffice.</p>
@@ -45,17 +45,17 @@
 <p>The focus of many path planning algorithms <span class="citation">[@planning_steven]</span> tend to focus on kinematic approaches such as dubins path <span class="citation">[@Dubins]</span>. While these provide nice abstractions for focusing on the algorithms, robots are inevitably controlled through dynamics such as torque on the wheels. The dynamics approach better supports directly modeling the environment (and how slight deviations from the model might affect the resulting kinematics).</p>
 <h1 id="dynamics">Dynamics</h1>
 <div class="figure">
-<img src="../images/roomba.png" alt="Robot Diagram" /><p class="caption">Robot Diagram</p>
+<img src="images/roomba.png" alt="Robot Diagram" /><p class="caption">Robot Diagram</p>
 </div>
 <h2 id="conservative-dynamics">Conservative Dynamics</h2>
 <p>The robot, approximated as a cylinder, has mass <span class="math">\(m\)</span>, radius <span class="math">\(r\)</span> and height <span class="math">\(h\)</span>. The moment of inertia about its principle axis, <span class="math">\(\hat{z}_{robot}\)</span>, is <span class="math">\(I = \frac{1}{2}mr^2\)</span>.</p>
 <p>There are <span class="math">\(3\)</span> degrees of freedom, <span class="math">\(x, y, \theta\)</span>. <span class="math">\(z\)</span> serves as a potential field <span class="math">\(V(x,y, \theta) = mgz(x, y)\)</span>, while <span class="math">\(x\)</span> and <span class="math">\(y\)</span> define its absolute coordinates and <span class="math">\(\theta\)</span> provides orientation on a 2-d manifold.</p>
-<p>Therefore the Lagrangian<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> is given by:</p>
+<p>Therefore, the Lagrangian<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> is given by:</p>
 <blockquote>
 <p><span class="math">\(\mathcal{L} = \frac{m}{2}\left((\dot{x}^2+\dot{y}^2) + \frac{1}{2}r^2 \dot{\theta}^2 - g\cdot z(x, y)\right)\)</span></p>
 </blockquote>
 <h2 id="non-conservative-dynamics">Non-Conservative Dynamics</h2>
-<p>Next, let us consider the forces and torques exerted on the robot. There are 2 forces, <span class="math">\((F_l, F_r)\)</span>, located at the wheels, which themselves are located at <span class="math">\((0, r_w)\)</span> and <span class="math">\((\pi, r_w)\)</span> in the robot’s local coordinate system. Thus there is a net force on the center of mass <span class="math">\(F_l + F_r\)</span> as well as a net torque <span class="math">\(F_r r_w - F_l r_w = (F_r - F_l)r_w\)</span> about <span class="math">\(\hat{z}_{\text{robot}}\)</span>.</p>
+<p>Next, let us consider the forces and torques exerted on the robot. There are 2 forces, <span class="math">\((F_l, F_r)\)</span>, located at the wheels, which themselves are located at <span class="math">\((0, r_w)\)</span> and <span class="math">\((\pi, r_w)\)</span> in the robot’s local coordinate system. Thus, there is a net force on the center of mass <span class="math">\(F_l + F_r\)</span> as well as a net torque <span class="math">\(F_r r_w - F_l r_w = (F_r - F_l)r_w\)</span> about <span class="math">\(\hat{z}_{\text{robot}}\)</span>.</p>
 <p>Furthermore, the wheel’s rotation produces friction, presumably proportional to the speed of rotation. One observes that friction is velocity dependent which is conveniently assumed to be proportional the net speed of the wheel. The net velocity of the wheels is the velocity of the center of mass plus the speed on the radius in the local coordinates.</p>
 <blockquote>
 <p><span class="math">\(v_{wr}= \hat{x}[\dot{x} - \dot{\theta} r_w \sin(\theta)] + \hat{y}[\dot{y} + \dot{\theta} r_w \cos(\theta)]\)</span></p>
@@ -77,7 +77,7 @@
 <p>For convenience in the automata below, <span class="math">\(\dot{\mathbf{a}} \equiv \left[\begin{matrix} \dot{\mathbf{x}}\\  \dot{\mathbf{v}} \end{matrix} \right ]\)</span></p>
 <h1 id="trail-following-automata">Trail Following Automata</h1>
 <div class="figure">
-<img src="../images/model1.png" alt="Model with implicit velocity sensor" /><p class="caption">Model with implicit velocity sensor</p>
+<img src="images/model1.png" alt="Model with implicit velocity sensor" /><p class="caption">Model with implicit velocity sensor</p>
 </div>
 <p>In this section I shall propose a hybrid automata model (illustrated in fig 3) for our trail following robot. To derive the automata consider the following pseudo code for controlling the high level kinematics of the trail following robot.</p>
 <pre><code>  While Not on Goal
@@ -92,12 +92,12 @@
 <li><p>Goal State: Implicit in the figure, at this state the system halts</p></li>
 <li><p>Drive State: Given that the sensor says its on the trail (denoted HIT), the robot should move forward. Here presumably the wheels rotate the same direction at the same speed (with the implied same forcing given our dynamics). This should continue until no longer on the trail (sensor reads a MISS).</p></li>
 <li><p>Stop State: Finally, because the for the dynamics for robot disallow instantaneous stopping, the stop state serves to model the robots movements once forcing is no longer applied until its kinetic energy is zero. This assertion is the same as imposing a guard on transitions from the state insisting that <span class="math">\(\mathbf{v} = 0\)</span>.</p></li>
-<li><p>Turn State: The implied objective is to turn the robot in place such that the sensor lies over the the trail. That said, which way should the robot turn? To avoid over rotating due to rotating away from the trail (reversing the orientation of the robot), the robot shall perform a breadth first style search by alternatively rotating at some angle <span class="math">\(\alpha_i\)</span> from its current heading, and then rotating <span class="math">\(-2 \alpha_i\)</span>. Then perform the same procedure for <span class="math">\(\alpha_{i + 1}\)</span>. If <span class="math">\(\alpha_{i}\)</span> is strictly increasing, with sufficiently small differences between successive alphas, then the robot is guaranteed not to over rotate.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> Note however that our robot cannot make angle measurements directly, instead a rotation time <span class="math">\(\Delta\)</span>, is defined. The next <span class="math">\(\Delta\)</span> in the series is twice the original + a corrective term determined by the time it takes to get <span class="math">\(v_{\theta \text{max}}\)</span> (which is as we shall later see is determined by <span class="math">\(F_0\)</span>). Next there is the matter of how to toggle directions. For that, a toggle variable, <span class="math">\(s \in \{-1, 1\}\)</span> is employed. After the turning time has run out, <span class="math">\(s := -s\)</span> toggles the direction of turning. Turning in place is then simply a matter of setting <span class="math">\(F_r := -F_l := -s F_0 /2\)</span></p></li>
+<li><p>Turn State: The implied objective is to turn the robot in place such that the sensor lies over the trail. That said, which way should the robot turn? To avoid over rotating due to rotating away from the trail (reversing the orientation of the robot), the robot shall perform a breadth first style search by alternatively rotating at some angle <span class="math">\(\alpha_i\)</span> from its current heading, and then rotating <span class="math">\(-2 \alpha_i\)</span>. Then perform the same procedure for <span class="math">\(\alpha_{i + 1}\)</span>. If <span class="math">\(\alpha_{i}\)</span> is strictly increasing, with sufficiently small differences between successive alphas, then the robot is guaranteed not to over rotate.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> Note however that our robot cannot make angle measurements directly, instead a rotation time <span class="math">\(\Delta\)</span>, is defined. The next <span class="math">\(\Delta\)</span> in the series is twice the original + a corrective term determined by the time it takes to get <span class="math">\(v_{\theta \text{max}}\)</span> (which is as we shall later see is determined by <span class="math">\(F_0\)</span>). Next there is the matter of how to toggle directions. For that, a toggle variable, <span class="math">\(s \in \{-1, 1\}\)</span> is employed. After the turning time has run out, <span class="math">\(s := -s\)</span> toggles the direction of turning. Turning in place is then simply a matter of setting <span class="math">\(F_r := -F_l := -s F_0 /2\)</span></p></li>
 </ol>
 <p>Finally, for convenience in the analytic analysis, quiescent initial conditions are assumed.</p>
 <h2 id="implicit-velocity-sensor">Implicit velocity sensor</h2>
 <div class="figure">
-<img src="../images/model2.png" alt="No velocity sensor" /><p class="caption">No velocity sensor</p>
+<img src="images/model2.png" alt="No velocity sensor" /><p class="caption">No velocity sensor</p>
 </div>
 <p>One issue with the current model is it implies the existence of a velocity sensor (in the <span class="math">\(|\mathbf{v}| = 0\)</span> guard on leaving the stop state). Note however that because the stop time is not forced (and the system presumably loses energy from friction) it is bounded by <span class="math">\(T\)</span> <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>. For such systems, the time is given by the impulse responses (see the dynamics during stop section for more)$.</p>
 <h3 id="specialization-to-flat-terrains">Specialization to flat terrains</h3>
@@ -144,7 +144,7 @@
 <p><span class="math">\(y(t) = C_4 (-1 + e^{-\gamma t} + \gamma t)\)</span></p>
 </blockquote>
 <h2 id="dynamics-during-turn">Dynamics during turn</h2>
-<p>Again, the starting boundary condition for <span class="math">\(\mathbf{v}(t=0) =0\)</span>. Thus because there is no <span class="math">\((x, y)\)</span> forcing, <span class="math">\((x, y)\)</span> are fixed during this state. Assuming an <span class="math">\((x,y)\)</span> independent <span class="math">\(z\)</span>, this leaves a single linear differential equation for <span class="math">\(\theta\)</span>.</p>
+<p>Again, the starting boundary condition for <span class="math">\(\mathbf{v}(t=0) =0\)</span>. Thus, because there is no <span class="math">\((x, y)\)</span> forcing, <span class="math">\((x, y)\)</span> are fixed during this state. Assuming an <span class="math">\((x,y)\)</span> independent <span class="math">\(z\)</span>, this leaves a single linear differential equation for <span class="math">\(\theta\)</span>.</p>
 <blockquote>
 <p><span class="math">\(F_r = - F_l = s\cdot \frac{1}{2}F_0 \wedge \mathbf{v}(t=0) = 0\\\\ \implies f = \left [\begin{matrix} v_x\\ v_y\\ v_{\theta}\\ -\gamma v_x + g \cdot \delta_x z\\ -\gamma v_y + g \cdot \delta_y z\\ -\gamma (r_w /r )^2 v_{\theta}\\ \end{matrix}\right] + \frac{s r_w F_0}{2 m r^2}\left [\begin{matrix} 0\\ 0\\ 0\\ 0\\ 0\\ 1 \end{matrix}\right] \\\\\\ \implies \left (\delta_{\theta}^2 + \gamma (r_w / r)^2 \delta_{\theta}\right )\theta = (s r_w F_0)/(2 m r^2)\)</span></p>
 </blockquote>
@@ -166,25 +166,25 @@
 <p><span class="math">\(C = \frac{s r_w F_0}{2 m r^2}\gamma'^{-2}\)</span></p>
 </blockquote>
 <h2 id="recap">Recap</h2>
-<p>In summary, so far we have defined a hybrid automata for our memoryless single sensor trail following robot. The automata was carefully engineered such that the dynamics in each state are <em>exactly</em> known. In theory then, given a fixed trail, it is possible to compute with 100% accuracy the trajectory of the automata.</p>
+<p>In summary, so far we have defined a HIOA for our memoryless single sensor trail following robot. The model was carefully engineered such that the dynamics in each state are <em>exactly</em> known. In theory then, given a fixed trail, it is possible to compute with 100% accuracy the trajectory of the automata.</p>
 <p>As such, has the problem been in essence been entirely solved? In some sense yes, if given a <em>specific</em> instance of a finite trail. But in a practical and more general sense, perhaps not. For instance, when do the MISS and HIT actions actually occur? Without some structure imposed, even if the state trajectories themselves are stable, determining any non-trivial properties about the motion of the robot proves futile.</p>
-<p>Presumably the HIT/MISS actions occur when the robot’s sensor is over the trail, but that is hardly encoded in the automata. When analyzing a specific trail, we instead replace HIT and MISS with functions, where the signature of hit is <span class="math">\(HIT: \mathbb{R}^3 \rightarrow \{0, 1\}\)</span> and <span class="math">\(MISS = \neg HIT\)</span>. As we shall see, ones intuition as to was a trail is restricts the geometry and topology of a Trail.</p>
+<p>Presumably the HIT/MISS actions occur when the robot’s sensor is over the trail, but that is hardly encoded in the automata. When analyzing a specific trail, we instead replace HIT and MISS with functions, where the signature of hit is <span class="math">\(HIT: \mathbb{R}^3 \rightarrow \{0, 1\}\)</span> and <span class="math">\(MISS = \neg HIT\)</span>. As we shall see, one’s intuition as to was a trail is restricts the geometry and topology of a Trail.</p>
 <h1 id="definition-of-a-trail-mathcalt-and-goal-state-mathcalg">Definition of a Trail <span class="math">\(\mathcal{T}\)</span> and Goal state <span class="math">\(\mathcal{G}\)</span></h1>
 <h2 id="what-makes-for-a-good-trail">What makes for a good trail</h2>
 <div class="figure">
-<img src="../images/paths.png" alt="3x3 grid of trails" /><p class="caption">3x3 grid of trails</p>
+<img src="images/paths.png" alt="3x3 grid of trails" /><p class="caption">3x3 grid of trails</p>
 </div>
 <p>First let us address the question as to what exactly is a trail. As mentioned in the motivation section, we shall focus on trails that are fixed with respect to the configuration space. Specifically, given any configuration of the system, the set <span class="math">\(\mathcal{T}\)</span> will remain unchanged.</p>
 <p>Furthermore, we shall see that given a specific trail, we shall see that the restrictions on the robot’s dynamics are either straight forward and robust or subtle and HIGHLY sensitive to perturbations.</p>
 <h2 id="examination-of-example-trails">Examination of example trails</h2>
 <h3 id="vacuous-goal-states">Vacuous goal states</h3>
-<p>Let us first examine trail 8. While the scale is ambiguous it is implied to be very small. Specifically, smaller than the robot. Here we have 2 options, 1 is to define an implicit goal/termination state when the robot completes a 360° turn. This can be implemented using a maximum timed allowed for rotation. The other approach is disallow such trails. We shall take the former approach. This will further motivate our introduction of invariant #1.</p>
+<p>Let us first examine trail 8. While the scale is ambiguous, it is implied to be very small (specifically, smaller than the robot). Here we have 2 options, 1 is to define an implicit goal/termination state when the robot completes a 360° turn. This can be implemented using a maximum timed allowed for rotation. The other approach is to disallow such trails. We shall take the former approach. This will further motivate our introduction of invariant #1.</p>
 <h3 id="mathcalt-cap-mathcalg-neq-emptyset"><span class="math">\(\mathcal{T} \cap \mathcal{G} \neq \emptyset\)</span></h3>
 <p>Next let us consider trail 9. Here there is no goal state indicated. Such configurations shall be disallowed by <span class="math">\(\mathcal{T} \cap \mathcal{G} \neq \emptyset\)</span>, where <span class="math">\(\mathcal{G}\)</span> is the set of goal states.</p>
 <h3 id="mathcalt-subset-r2"><span class="math">\(\mathcal{T} \subset R^2\)</span></h3>
-<p>Examining all the trails, another property that emerges is that trails are are subset of <span class="math">\(R^2\)</span>. While in principle they could be subsets of <span class="math">\(R^{n\geq2}\)</span>, because the robots movements are restricted to <span class="math">\(R^2\)</span>, any additional dimensions are unneeded.</p>
+<p>Examining all the trails, another property that emerges is that trails are subset of <span class="math">\(R^2\)</span>. While in principle they could be subsets of <span class="math">\(R^{n\geq2}\)</span>, because the robots movements are restricted to <span class="math">\(R^2\)</span>, any additional dimensions are unneeded.</p>
 <h3 id="h_0-0"><span class="math">\(H_0 = 0\)</span></h3>
-<p>Additionally, we insist (I believe uncontroversially) that the trail be connected. This notion is equivalent to insisting it have no 0 dimensional holes, i.e. it belongs to the holomogy group: <span class="math">\(H_0=0\)</span>. While possible to reformulate the problem with disconnected components, given the bounding envelope restriction to come they shall prove irrelevant and unreachable.</p>
+<p>Additionally, we insist (I believe uncontroversially) that the trail be connected. This notion is equivalent to insisting it have no 0 dimensional holes, i.e. it belongs to the homology group: <span class="math">\(H_0=0\)</span>. While possible to reformulate the problem with disconnected components, given the bounding envelope restriction to come they shall prove irrelevant and unreachable.</p>
 <h3 id="trail-must-be-bounded-or-effectively-bounded5">Trail must be bounded (or effectively bounded<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>)</h3>
 <p>While an unbounded region in <span class="math">\(R^2\)</span> may admit configurations that halt, we shall insist that a trail be bounded. This allows us to reason about tactics for exhausting the search space in a bounded amount of time.</p>
 <h3 id="d-and-k-d-holes">1-d and k-d holes</h3>
@@ -192,7 +192,7 @@
 <h3 id="area-of-the-mathcalt-neq-0">Area of the <span class="math">\(\mathcal{T} \neq 0\)</span></h3>
 <p>While, perhaps not strictly required, to match physical intuitions any segment must have non zero area. (i.e. no finitely thin line-segments)</p>
 <h2 id="hitmissgoal-and-the-robot-set-mathcalr_t">HIT/MISS/GOAL and the Robot Set <span class="math">\(\mathcal{R}_t\)</span></h2>
-<p>Let us the define the set of points enclosed by the robot at time <span class="math">\(t\)</span> as <span class="math">\(\mathcal{R}_t = (x - x_r)^2 + (y - y_r)^2 \leq r^2\)</span>. In the robot set the is always a point (which move with the robot) <span class="math">\(p_s = (x_s, y_s) \in \mathcal{R}_t\)</span> that corresponds to the sensor location.</p>
+<p>Let us define the set of points enclosed by the robot at time <span class="math">\(t\)</span> as <span class="math">\(\mathcal{R}_t = (x - x_r)^2 + (y - y_r)^2 \leq r^2\)</span>. In the robot set the is always a point (which move with the robot) <span class="math">\(p_s = (x_s, y_s) \in \mathcal{R}_t\)</span> that corresponds to the sensor location.</p>
 <p>We then define the value of the sensor as:</p>
 <ul>
 <li>GOAL iff <span class="math">\(p_s \in \mathcal{G}\)</span></li>
@@ -216,7 +216,7 @@
 <li>We can add a small constant friction force the dynamics (yuck)</li>
 <li>Use <span class="math">\(\dot{x} = \xi'\)</span>
 <ul>
-<li><span class="math">\(T = \min(\log({\frac{\xi'}{\dot{x}(0)}})/ \gamma), \log({\frac{\xi'}{\dot{y}(0)}})/ \gamma)\)</span></li>
+<li><span class="math">\(T = \min(\log({\frac{\xi'}{\dot{x}(0)}})/ \gamma, \log({\frac{\xi'}{\dot{y}(0)}})/ \gamma)\)</span></li>
 </ul></li>
 <li>Abandon quiescent conditions between stop and drive/turn.</li>
 </ol>
@@ -225,7 +225,7 @@
 <blockquote>
 <p><span class="math">\(\dot{x}(t) = C_2 \gamma (-e^{-\gamma t} + 1)\)</span></p>
 </blockquote>
-<p>Thus <span class="math">\(v_{max} = (\frac{F_0}{m})\gamma^{-1}\)</span>.<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a></p>
+<p>Thus, <span class="math">\(v_{max} = (\frac{F_0}{m})\gamma^{-1}\)</span>.<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a></p>
 <p>Solving for <span class="math">\(F_0\)</span> yields</p>
 <blockquote>
 <p><span class="math">\(F_{max} = m \gamma v_{max}\)</span></p>
@@ -239,23 +239,23 @@
 <p>This section is mainly included for completeness. The main goal is to convince the reader that while general solutions exist, they are relatively impractical and/or probabilistic.</p>
 <h2 id="dynamical-billiards">Dynamical Billiards</h2>
 <div class="figure">
-<img src="../images/BunimovichStadium.png" alt="http://en.wikipedia.org/wiki/File:BunimovichStadium.svg" /><p class="caption">http://en.wikipedia.org/wiki/File:BunimovichStadium.svg</p>
+<img src="images/BunimovichStadium.png" alt="http://en.wikipedia.org/wiki/File:BunimovichStadium.svg" /><p class="caption">http://en.wikipedia.org/wiki/File:BunimovichStadium.svg</p>
 </div>
-<p>Dynamical Billiards <span class="citation">[@hbilliards]</span> <span class="citation">[@elastic]</span> <span class="citation">[@chaos]</span> is the study of a generalized billiards game with arbitrary boundaries. It is included here mostly for completeness, and because its literature offers some insight into solving the general trail problem. In the billiards problem, the ball under goes specular reflection on the boundary<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>. It is one of the first examples of a completely deterministic system with chaotic behavior. That is, the system is exponentially unstable with respect to perturbations in the initial conditions.</p>
+<p>Dynamical Billiards <span class="citation">[@hbilliards]</span> <span class="citation">[@elastic]</span> <span class="citation">[@chaos]</span> is the study of a generalized billiards game with arbitrary boundaries. It is included here mostly for completeness, and because its literature offers some insight into solving the general trail problem. In the billiard problem, the ball undergoes specular reflection on the boundary<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>. It is one of the first examples of a completely deterministic system with chaotic behavior. That is, the system is exponentially unstable with respect to perturbations in the initial conditions.</p>
 <p>More over, the spectral reflection isn’t even necessary for this to be the case! Because our system always overshoots the boundary (i.e. the reflection angle never approached <span class="math">\(\pi\)</span>), then our robot will experience the <em>same</em> behavior! That’s really to bad for 2 reasons:</p>
 <ol style="list-style-type: decimal">
 <li>Any simulation approximating the derived equations of motion will blow up (in the general case)<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></li>
-<li>Perturbations to the model (such as generalizing to a rectangular automata with forces in some interval) also results in instability.</li>
+<li>Perturbations to the model (such as generalizing to rectangular automata with forces in some interval) also results in instability.</li>
 </ol>
-<p>Never the less, abandoning any notion of understanding deviations from the model let us quickly overview (albeit hand wavily) 2 schemes the with some caveats <em>will</em> result in the automata reaching the goal state.</p>
+<p>Nevertheless, abandoning any notion of understanding deviations from the model let us quickly overview (albeit hand wavily) 2 schemes the with some caveats <em>will</em> result in the automata reaching the goal state.</p>
 <h2 id="phi-c-pi-c-notin-mathbfq"><span class="math">\(\Phi = c \pi\)</span>, <span class="math">\(c \notin \mathbf{Q}\)</span></h2>
-<p>If we restrict the overshoot angle to irrational multiples of <span class="math">\(\pi\)</span> we produce an aperiodic orbit. <em>If</em> the dense orbit and the goal state have a non empty intersection, then the robot will halt in a finite amount of time.</p>
+<p>If we restrict the overshooting angle, <span class="math">\(\Phi\)</span>, to irrational multiples of <span class="math">\(\pi\)</span> we produce an aperiodic orbit. <em>If</em> the dense orbit and the goal state have a non empty intersection, then the robot will halt in a finite amount of time.</p>
 <h2 id="phi-in-0-pi2"><span class="math">\(\Phi \in [0, \pi/2]\)</span></h2>
-<p>Given an a uniformly random choice of <span class="math">\(\Phi\)</span>, a similar result to the aperiodic orbit occurs, now with the probability of a finite search time limiting to 1.</p>
-<p>Both results are however impractical as they give no bounds on time required. Furthermore, while possible to produce <span class="math">\(\Phi\)</span> arbitrary close to an irrational multiple of <span class="math">\(\pi\)</span>, it must inevitably be an approximation. As for the random choice of <span class="math">\(\Phi\)</span>. Simulating might be done with the rectangular version of the forcing previously described. While in principle possible to arbitrary precision, the chaotic nature of the problem suggests that any non trivial trail may be computationally unfeasible.</p>
+<p>Given a uniformly random choice of <span class="math">\(\Phi\)</span>, a similar result to the aperiodic orbit occurs, now with the probability of a finite search time limiting to 1.</p>
+<p>Both results are however impractical as they give no bounds on time required. Furthermore, while possible to produce <span class="math">\(\Phi\)</span> arbitrary close to an irrational multiple of <span class="math">\(\pi\)</span>, it must inevitably be an approximation. As for the random choice of <span class="math">\(\Phi\)</span>, simulating might be done with the rectangular version of the forcing previously described. While in principle possible to arbitrary precision, the chaotic nature of the problem suggests that any non trivial trail may be computationally unfeasible.</p>
 <h1 id="practical-limits-in-gamma-and-boundary-following">Practical limits in <span class="math">\(\gamma\)</span> and boundary following</h1>
 <p>Upon first encounter with the problem, many of my colleagues (and myself) initially imagine the robot following along the boundary. While possible with more advanced sensor systems (or equivalently memory), the memoryless single sensor case affords no such solution.</p>
-<p>That said, it is clear that if the automata had near instantaneous (implying arbitrarily large <span class="math">\(\gamma\)</span>), and the curvature of the boundary was restricted (say either zero or negative) the it is possible to for the automata to maintain the following inductive invariant:</p>
+<p>That said, it is clear that if the automata had near instantaneous (implying arbitrarily large <span class="math">\(\gamma\)</span>), and the curvature of the boundary was restricted (say either zero or negative) then it is possible for the automata to maintain the following inductive invariant:</p>
 <p>Given the min distance to the boundary <span class="math">\(d_i = \min(\{\text{dist}((x(t_i),y(t_i)), (x_b - y_b)) | \forall(x_b, y_b) \in \delta \mathcal{T}\})\)</span></p>
 <blockquote>
 <p><span class="math">\(d_i &lt; \Xi \implies d_j &lt; \Xi\)</span>, where <span class="math">\(t_i &lt; t_j\)</span></p>
@@ -265,43 +265,43 @@
 <p>Increasing <span class="math">\(\gamma\)</span> while maintaining <span class="math">\(v_{max}\)</span> necessarily implies increasing <span class="math">\(F_0\)</span> (See sections on dynamics and stopping distance). However, the model develop fails to consider internal shears and stresses on the robot. As <span class="math">\(F_0\)</span> increases, these effects become less negligible. In fact, intense shears and stresses may result in the robot’s frame deforming or more likely breaking. The exact limits are outside of the scope of this paper.</p>
 <h1 id="restricted-trails">Restricted Trails</h1>
 <p>Another example is that of a parametric line<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>, <span class="math">\(l(\tau), \tau \in [0, 1]\)</span>, bloated by a constant width with the <span class="math">\(H_{n \geq 0} = 0\)</span>.</p>
-<p>This enforces a smooth constant width trail with no self intersections. Thus the the parameter <span class="math">\(\tau\)</span> provides a constant metric for progress.</p>
-<p>Specifically, we use the the point <span class="math">\(\tau^*\)</span> on line <span class="math">\(l\)</span> that is closest to <span class="math">\(x, y\)</span> as our metric. If <span class="math">\(\tau^*\)</span> is shown to be monotonically increasing that implies the robot will reach the goal state in a finite amount of time.</p>
+<p>This enforces a smooth constant width trail with no self intersections. Thus, the parameter <span class="math">\(\tau\)</span> provides a constant metric for progress.</p>
+<p>Specifically, we use the point <span class="math">\(\tau^*\)</span> on line <span class="math">\(l\)</span> that is closest to <span class="math">\(x, y\)</span> as our metric. If <span class="math">\(\tau^*\)</span> is shown to be monotonically increasing, that implies the robot will reach the goal state in a finite amount of time.</p>
 <p>Given the curvature of the line, there need exist some <span class="math">\(\Phi_{max} \leq \pi/2\)</span> s.t. the robot having <span class="math">\(\Phi &lt; \Phi_{max}\)</span> guarantees the previous invariant.</p>
-<p>To illustrate this, first consider the limits of no curvature and the limit to <span class="math">\(\pm\)</span> infinite curvature. Given no curvature in the line, <span class="math">\(\Phi_{max} = \pi/2\)</span>, which is to say the robot does no turn around. Given that the robot has non zero velocity, it <em>must</em> advance implying <span class="math">\(\tau^*_2 \geq \tau^*_1\)</span>. In the limits to <span class="math">\(\pm\)</span> infinite curvature, we arrive at a contradiction. The line must turn back on itself, but there are no self intersections allowed. Thus the curvature is finite.</p>
+<p>To illustrate this, first consider the limits of no curvature and the limit to <span class="math">\(\pm\)</span> infinite curvature. Given no curvature in the line, <span class="math">\(\Phi_{max} = \pi/2\)</span>, which is to say the robot does no turn around. Given that the robot has non zero velocity, it <em>must</em> advance implying <span class="math">\(\tau^*_2 \geq \tau^*_1\)</span>. In the limits to <span class="math">\(\pm\)</span> infinite curvature, we arrive at a contradiction. The line must turn back on itself, but there are no self intersections allowed. Thus, the curvature is finite.</p>
 <p>We consider instead the positive and negative curvature cases</p>
 <ol style="list-style-type: decimal">
 <li>For negative curvature
 <ol style="list-style-type: decimal">
 <li>The nearest boundary is turning towards the robot.</li>
-<li>Thus the far boundary is turning away from the the robot. (because of constant width)</li>
+<li>Thus, the far boundary is turning away from the robot. (because of constant width)</li>
 <li>Therefore, the normal line from the boundary (i.e. having <span class="math">\(\Phi = \pi/2\)</span>) will result in intersecting the far boundary at a <span class="math">\(\tau &lt; \tau^*\)</span> (with <span class="math">\(\Phi &gt; \pi/2\)</span> only making the problem worse).</li>
 <li>Thus, <span class="math">\(\Phi_{max}\)</span> decreases.</li>
 </ol></li>
 <li>Similarly, for positive curvature
 <ol style="list-style-type: decimal">
 <li>The nearest boundary is turning away from the robot.</li>
-<li>Thus the far boundary is turning towards the the robot.</li>
+<li>Thus, the far boundary is turning towards the robot.</li>
 <li>Therefore, the normal line from the boundary will result in intersecting the far boundary at a <span class="math">\(\tau &gt; \tau^*\)</span></li>
 <li>Thus, <span class="math">\(\Phi_{max}\)</span> may increase or stay the same.</li>
 </ol></li>
 </ol>
-<p>Thus one must pick the <span class="math">\(\Phi_{max}\)</span> based on the largest (in magnitude) negative curvature and width of the trail.</p>
+<p>Thus, one must pick the <span class="math">\(\Phi_{max}\)</span> based on the largest (in magnitude) negative curvature and width of the trail.</p>
 <p><span class="math">\(\square\)</span></p>
 <h1 id="worked-example-straight-line-case">Worked Example: Straight line case</h1>
 <div class="figure">
-<img src="../images/example_execution.png" />
+<img src="images/example_execution.png" />
 </div>
 <p>Let us work out explicitly the most trivial case (that of a straight) trail.</p>
 <ol style="list-style-type: decimal">
-<li><p>As previously proved <span class="math">\(\Phi_{max} = \pi_2\)</span>.</p></li>
+<li><p>As previously proved, <span class="math">\(\Phi_{max} = \pi_2\)</span>.</p></li>
 <li><p>We will model the boundaries of the trail as <span class="math">\((L, R, U, D) = (x=0, x=2, y=1, y=0)\)</span></p></li>
-<li>Thus we may expect an execution as illustrated in diagram 7.
+<li>Thus, we may expect an execution as illustrated in diagram 7.
 <ol style="list-style-type: decimal">
-<li>Note that the initial angle is different the the other two.</li>
+<li>Note that the initial angle is different the other two.</li>
 <li>While the initial angle is arbitrary, given that the robot reaches a steady state (building up max Kinetic Energy) before encountering the boundary when turning, the robot will always overshoot by <span class="math">\(\Phi\)</span> degrees.</li>
-<li>Because <span class="math">\(\Phi &lt; \Phi_{max}\)</span>, <span class="math">\(\tau^*\)</span> will be monotonically increasing (as illustrated)</li>
-<li>Thus the boundary will be reached in a finite amount of time. <span class="math">\(\square\)</span></li>
+<li>Because <span class="math">\(\Phi &lt; \Phi_{max}\)</span>, <span class="math">\(tau^*\)</span> will be monotonically increasing (as illustrated)</li>
+<li>Thus, the boundary will be reached in a finite amount of time. <span class="math">\(\square\)</span></li>
 </ol></li>
 </ol>
 <h1 id="conclusion">Conclusion</h1>
@@ -311,13 +311,13 @@
 <p>While outside of the current scope of the project, the initial intention was to develop physical implementations of the robots, estimate <span class="math">\(\gamma\)</span>, determine what kind of trails are valid using the developed theory, and actually test how well the model holds.</p>
 <p>In addition, the initial proposal’s implementation called for an Arduino Haskell DSL, which is an interesting verification problem in itself.</p>
 <h2 id="external-guidance">External Guidance</h2>
-<p>While HIT/MISS corresponded to fixed functions in the developed theory, in principle an external controller could use HIT/MISS to guide the robot. HITs would indicate continue, or stop turning depending on the context. Similarly, MISS would indicate stop and start turning. A successive HIT/MISS sequence during the turning state could be used to control the initial turning direction.</p>
+<p>While HIT/MISS corresponded to fixed functions in the developed theory, in principle an external controller could use the HIT/MISS actions to guide the robot. HITs would indicate continue, or stop turning depending on the context. Similarly, MISS would indicate stop and start turning. A successive HIT/MISS sequence during the turning state could be used to control the initial turning direction.</p>
 <h2 id="perturbations-from-mathbff_0">Perturbations from <span class="math">\(\mathbf{F_0}\)</span></h2>
-<p>Alluded to in the dynamical billiards section, a rectangular automata could be used to model stochastic perturbations in forcing. Also, mentioned in the dynamical billiards section is the instability of such a procedure. Perhaps some form of abstraction on certain sub-classes of trails could avoid this issue. Specifically, trails with convergent solutions such an elliptical boundary that focuses trajectories towards the goal.</p>
+<p>Alluded to in the dynamical billiards section, rectangular automata could be used to model stochastic perturbations in forcing. Also, mentioned in the dynamical billiards section is the instability of such a procedure. Perhaps some form of abstraction on certain sub-classes of trails could avoid this issue. Specifically, trails with convergent solutions such an elliptical boundary that focuses trajectories towards the goal.</p>
 <h2 id="analysis-of-2-sensor-case-comparisons">Analysis of 2 sensor case + comparisons</h2>
 <p>There exists a HUGE literature to explore for richer multi sensor systems. It would be interesting (although exhausting) to do a comprehensive review of the memoryless 2 sensor models and their various advantages over the simple single sensor case.</p>
 <h2 id="more-in-depth-general-trails">More in depth general trails</h2>
-<p>The depth and analysis of the general trails is much more limited than this author would like. The primary limitation is a deep understanding in some of the more subtle topological arguments likely required to properly study the problem.</p>
+<p>The depth and analysis of the general trails is much more limited than this author would like. The primary limitation is a deep understanding of the more subtle topological arguments likely required to properly study the problem.</p>
 <h2 id="allow-non-zero-potential-fields">Allow non zero potential fields</h2>
 <p>The above analysis perhaps unfairly specializes to flat terrain (and thus no interesting potential fields). Extension to arbitrary terrains seems impossible, but validation of arbitrary terrains with no prior domain experience may be possible with simulation based verification systems such as C2E2.</p>
 <h1 id="references">References</h1>
