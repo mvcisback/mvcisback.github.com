@@ -8,6 +8,11 @@ abstract: |
     This paper presents Single Sensor Memoryless Trail Following Automatas. It develops a formal model of the dynamics of such automata, the trails it follows, as well as exploring when these automata can be expected to halt. The halting conditions involve restrictions in the topology, geometry, boundaries of the trail, and physical considerations. The memoryless restriction distinguishes this approach from other stateful techniques used to map out environments. Lastly, the approach focuses on the dynamics rather the kinematics, both aligning better with the actual controls of physical robots and directly allowing perturbations in the motions due to uneven friction, forcing, or inclination.
 ---
 
+# Related Material
+
+- [github project](https://github.com/mvcisback/line_follower)
+- [pdf form](https://github.com/mvcisback/line_follower/blob/master/path_follower.pdf?raw=true)
+- [slides from presentation](http://mvcisback.github.io/line_follower/)
 
 # Motivation
 
