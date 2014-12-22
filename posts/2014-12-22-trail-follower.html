@@ -41,7 +41,7 @@
 </ul>
 <h1 id="motivation">Motivation</h1>
 <div class="figure">
-<img src="images/OnPath.png" />
+<img src="../images/OnPath.png" />
 </div>
 <p>The memoryless single sensor “line” following automata is among the first robotics projects students encounter (indeed this author has encountered numerous variations<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>). When encountering a boundary, the robot reacts to correct its course and carries on. However, as is often the case, implementation is vastly easier than formal modeling and verification of the problem. While not having a memory to map out and record the boundaries of the “line” simplifies the algorithm’s implementation, as we shall see, without proper care the non-linear dynamics of these automata are easily subject to deterministic chaos. Even after carefully constructing our hybrid automata to have easily computable (and trivially simulatable dynamics), we find that chaos still emerges. Simulation based verification for some trails becomes a futile task. Nevertheless, many practical and physical trails remain approachable both from analytic and simulation based perspective.</p>
 <p>As one might expect, simple path following automata are very well studied, particularly in the context of mapping <span class="citation">[@disk-explore]</span>. But such automata and many like it, exploit memory to make deliberate decision for path planning, eliminating many of the interesting nuances that lead to unstable blowup in the model. Furthermore, many path following robots are gifted with comparatively richer sensor arrays. Indeed, tasks that may prove trivial given even one additional sensor, become unfeasible in general case<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Lastly, much of the compared literature focuses on the kinematics rather than the dynamics of the robot. The approach here focuses on the dynamics which both aligns better with the actual controls of physical robots, and more directly allows perturbations in the motions due to uneven friction, forcing, or inclination.</p>
@@ -51,7 +51,7 @@
 <p>The focus of many path planning algorithms <span class="citation">[@planning_steven]</span> tend to focus on kinematic approaches such as dubins path <span class="citation">[@Dubins]</span>. While these provide nice abstractions for focusing on the algorithms, robots are inevitably controlled through dynamics such as torque on the wheels. The dynamics approach better supports directly modeling the environment (and how slight deviations from the model might affect the resulting kinematics).</p>
 <h1 id="dynamics">Dynamics</h1>
 <div class="figure">
-<img src="images/roomba.png" alt="Robot Diagram" /><p class="caption">Robot Diagram</p>
+<img src="../images/roomba.png" alt="Robot Diagram" /><p class="caption">Robot Diagram</p>
 </div>
 <h2 id="conservative-dynamics">Conservative Dynamics</h2>
 <p>The robot, approximated as a cylinder, has mass <span class="math">\(m\)</span>, radius <span class="math">\(r\)</span> and height <span class="math">\(h\)</span>. The moment of inertia about its principle axis, <span class="math">\(\hat{z}_{robot}\)</span>, is <span class="math">\(I = \frac{1}{2}mr^2\)</span>.</p>
@@ -83,7 +83,7 @@
 <p>For convenience in the automata below, <span class="math">\(\dot{\mathbf{a}} \equiv \left[\begin{matrix} \dot{\mathbf{x}}\\  \dot{\mathbf{v}} \end{matrix} \right ]\)</span></p>
 <h1 id="trail-following-automata">Trail Following Automata</h1>
 <div class="figure">
-<img src="images/model1.png" alt="Model with implicit velocity sensor" /><p class="caption">Model with implicit velocity sensor</p>
+<img src="../images/model1.png" alt="Model with implicit velocity sensor" /><p class="caption">Model with implicit velocity sensor</p>
 </div>
 <p>In this section I shall propose a hybrid automata model (illustrated in fig 3) for our trail following robot. To derive the automata consider the following pseudo code for controlling the high level kinematics of the trail following robot.</p>
 <pre><code>  While Not on Goal
@@ -103,7 +103,7 @@
 <p>Finally, for convenience in the analytic analysis, quiescent initial conditions are assumed.</p>
 <h2 id="implicit-velocity-sensor">Implicit velocity sensor</h2>
 <div class="figure">
-<img src="images/model2.png" alt="No velocity sensor" /><p class="caption">No velocity sensor</p>
+<img src="../images/model2.png" alt="No velocity sensor" /><p class="caption">No velocity sensor</p>
 </div>
 <p>One issue with the current model is it implies the existence of a velocity sensor (in the <span class="math">\(|\mathbf{v}| = 0\)</span> guard on leaving the stop state). Note however that because the stop time is not forced (and the system presumably loses energy from friction) it is bounded by <span class="math">\(T\)</span> <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>. For such systems, the time is given by the impulse responses (see the dynamics during stop section for more)$.</p>
 <h3 id="specialization-to-flat-terrains">Specialization to flat terrains</h3>
@@ -178,7 +178,7 @@
 <h1 id="definition-of-a-trail-mathcalt-and-goal-state-mathcalg">Definition of a Trail <span class="math">\(\mathcal{T}\)</span> and Goal state <span class="math">\(\mathcal{G}\)</span></h1>
 <h2 id="what-makes-for-a-good-trail">What makes for a good trail</h2>
 <div class="figure">
-<img src="images/paths.png" alt="3x3 grid of trails" /><p class="caption">3x3 grid of trails</p>
+<img src="../images/paths.png" alt="3x3 grid of trails" /><p class="caption">3x3 grid of trails</p>
 </div>
 <p>First let us address the question as to what exactly is a trail. As mentioned in the motivation section, we shall focus on trails that are fixed with respect to the configuration space. Specifically, given any configuration of the system, the set <span class="math">\(\mathcal{T}\)</span> will remain unchanged.</p>
 <p>Furthermore, we shall see that given a specific trail, we shall see that the restrictions on the robot’s dynamics are either straight forward and robust or subtle and HIGHLY sensitive to perturbations.</p>
@@ -245,7 +245,7 @@
 <p>This section is mainly included for completeness. The main goal is to convince the reader that while general solutions exist, they are relatively impractical and/or probabilistic.</p>
 <h2 id="dynamical-billiards">Dynamical Billiards</h2>
 <div class="figure">
-<img src="images/BunimovichStadium.png" alt="http://en.wikipedia.org/wiki/File:BunimovichStadium.svg" /><p class="caption">http://en.wikipedia.org/wiki/File:BunimovichStadium.svg</p>
+<img src="../images/BunimovichStadium.png" alt="http://en.wikipedia.org/wiki/File:BunimovichStadium.svg" /><p class="caption">http://en.wikipedia.org/wiki/File:BunimovichStadium.svg</p>
 </div>
 <p>Dynamical Billiards <span class="citation">[@hbilliards]</span> <span class="citation">[@elastic]</span> <span class="citation">[@chaos]</span> is the study of a generalized billiards game with arbitrary boundaries. It is included here mostly for completeness, and because its literature offers some insight into solving the general trail problem. In the billiard problem, the ball undergoes specular reflection on the boundary<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>. It is one of the first examples of a completely deterministic system with chaotic behavior. That is, the system is exponentially unstable with respect to perturbations in the initial conditions.</p>
 <p>More over, the spectral reflection isn’t even necessary for this to be the case! Because our system always overshoots the boundary (i.e. the reflection angle never approached <span class="math">\(\pi\)</span>), then our robot will experience the <em>same</em> behavior! That’s really to bad for 2 reasons:</p>
@@ -296,7 +296,7 @@
 <p><span class="math">\(\square\)</span></p>
 <h1 id="worked-example-straight-line-case">Worked Example: Straight line case</h1>
 <div class="figure">
-<img src="images/example_execution.png" />
+<img src="../images/example_execution.png" />
 </div>
 <p>Let us work out explicitly the most trivial case (that of a straight) trail.</p>
 <ol style="list-style-type: decimal">
