@@ -15,8 +15,8 @@ myColor = "#b5e853"
 myAlpha = 26
 
 myBody = body ?
-         do sym margin 0
-            sym padding 0
+         do sym margin (px 0)
+            sym padding (px 0)
             background (url "../images/bkg.png")
             color "#eaeaea"
             fontSize (px 16)
@@ -30,7 +30,7 @@ mySection = section ?
 containerClass = star # byClass "container" ?
                  do width $ pct 90
                     maxWidth $ px 600
-                    sym2 margin 0 auto
+                    sym2 margin (px 0) auto
 
 hSelectors = h1 <> h2 <> h3 <> h4 <> h5 <> h6 ?
              do margin 0 0 (px 20) 0
