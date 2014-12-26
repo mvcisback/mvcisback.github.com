@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/mvc
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://mvcisback.github.io
+  * I am mvc (https://keybase.io/mvc) on keybase.
+  * I have a public key with fingerprint AB22 8386 D0DA 3CB9 2EE3  4E45 CDCF 42D9 ACDC 25CF
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "ab228386d0da3cb92ee34e45cdcf42d9acdc25cf",
+            "host": "keybase.io",
+            "key_id": "cdcf42d9acdc25cf",
+            "kid": "0101f117f48fc4a09e9616c098105ee7f47facddb8d1e00b05953dcc632c11b504070a",
+            "uid": "a609add45866fac2d8cf3c0d31271800",
+            "username": "mvc"
+        },
+        "service": {
+            "hostname": "mvcisback.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1419637338,
+    "expire_in": 157680000,
+    "prev": "f7d338fa8b8bcc9148bfed97f77000dcad1bec783e8629a52d503c4050c00675",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.1
+Comment: https://keybase.io/crypto
+
+yMIfAnicbZJZSFRRGMfvWGZOy1TQvlCXIopxOOfud6wHiaCFoEUK2oZ7ljveppk7
+qxViVhiUDxVJC4WiZEZOUllDRJuFqRVhgolkEbZStCGE1UN0rhW99HTO+X+///98
+3+G0jBrCuV3PjMc1Vl7+V9eD24tSXGFV//oSHtlkB+8v4UN0cDGtSJDGo3ErkuT9
+vIEEQRM1hQBiiBjpAqWiRCUZE2xKAtENthFkbPJevshOOA4Wg4wE9Vk209ghYBGm
+/ocPDRYABNCEUDUlzcSSAXSqK1DBQNcgkCllumoyE0EagRQABGRdFgnGiihgCJEM
+JKACg8WlBuMMBegGIZKsKQrzCUTDpogBEaGgQg0AB0zQeMQIU0aHizFf6uWZUGxh
+6kzvDPGvaCWQgUO+oJUsSqHfE0XjdtLG9lYGFCWT0YTfCUjuiDqObRQF/mQFkBUh
+7CWZo5jGE5Yd4f2QkThpOeFQgroiqqKoeXm6PWrFacByCFlVWJMAOPfQYhZpqoRB
+pqEhDWGsQ0lDJiW6aqoqwwg2CEQUq5pINUXQDVkgMhCxBGSAAVBUmXemi0Vs3i+y
+No0gi0xYwYiRTMUpX3qneeNQzuXmhmVnOX+Bc+eO+ftDJj8aznV+uBu+/mTf90MX
+lr2cZo2a3tXw3PN01uH27t1vl3/bikLVgdHHcxtOTgj0hA+cdR9+Pv2Yd0OmfHbZ
+Fu79kdyL+S9XnWiedGVx44er73xTX3V1jDhzbF9tXc3Ec3tX9mVi9zzgfWP4phbb
+M29NWRPHfRRz1vrmvu5fUD50cl661wMK96cvfV5WULm0pb4qUFBh1x39hForpywt
+vALTvQNzahZWR1zj1t3KevMqu68sE711/OiPiQM5BY0V0bb+I6t3jdWyCvNg56kF
+K3a+PpG59vN+WeD0s8rLnT0z0rGeji+7T0640fqpfKanfWT9wXdND8+/LVnS0sfV
+vZgvjO/2bsqpnbW57RfXKTB9
+=07bg
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mvc
+
+==================================================================
