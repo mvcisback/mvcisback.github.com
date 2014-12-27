@@ -1,7 +1,7 @@
 ghc: 7.8
 language: haskell
 script:
-  - cabal exec -- ghc site.hs
+  - ghc site.hs
   - ./site build
   - ./deploy.sh deploy
 install:
