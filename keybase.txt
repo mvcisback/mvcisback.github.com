@@ -6,19 +6,27 @@ I hereby claim:
 
   * I am an admin of https://mvcisback.github.io
   * I am mvc (https://keybase.io/mvc) on keybase.
-  * I have a public key with fingerprint AB22 8386 D0DA 3CB9 2EE3  4E45 CDCF 42D9 ACDC 25CF
+  * I have a public key with fingerprint 8834 61B5 A52A FF47 7A3B  E229 41A9 175C C590 2F35
 
-To claim this, I am signing this object:
+To do so, I am signing this object:
 
 {
     "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.0"
+        },
         "key": {
-            "fingerprint": "ab228386d0da3cb92ee34e45cdcf42d9acdc25cf",
+            "fingerprint": "883461b5a52aff477a3be22941a9175cc5902f35",
             "host": "keybase.io",
-            "key_id": "cdcf42d9acdc25cf",
-            "kid": "0101f117f48fc4a09e9616c098105ee7f47facddb8d1e00b05953dcc632c11b504070a",
+            "key_id": "41A9175CC5902F35",
             "uid": "a609add45866fac2d8cf3c0d31271800",
             "username": "mvc"
+        },
+        "merkle_root": {
+            "ctime": 1424588749,
+            "hash": "4e8d24e511e615097fc5104c18acb4c7b006355cd47fcf273ee4ecff544d69da34d33e3356a2fca4fccc7b2b7b068c9b3760645b5d9dc16c8b538d680886d290",
+            "seqno": 159408
         },
         "service": {
             "hostname": "mvcisback.github.io",
@@ -27,36 +35,37 @@ To claim this, I am signing this object:
         "type": "web_service_binding",
         "version": 1
     },
-    "ctime": 1419637338,
+    "ctime": 1424588782,
     "expire_in": 157680000,
-    "prev": "f7d338fa8b8bcc9148bfed97f77000dcad1bec783e8629a52d503c4050c00675",
-    "seqno": 3,
+    "prev": "94fcd5ce145446427700ceea62687bda838cfadf91284c47891acbdeca672c0f",
+    "seqno": 11,
     "tag": "signature"
 }
 
-with the aforementioned key, yielding the PGP signature:
+which yields the signature:
 
 -----BEGIN PGP MESSAGE-----
-Version: Keybase OpenPGP v2.0.1
-Comment: https://keybase.io/crypto
+Version: GnuPG v2
 
-yMIfAnicbZJZSFRRGMfvWGZOy1TQvlCXIopxOOfud6wHiaCFoEUK2oZ7ljveppk7
-qxViVhiUDxVJC4WiZEZOUllDRJuFqRVhgolkEbZStCGE1UN0rhW99HTO+X+///98
-3+G0jBrCuV3PjMc1Vl7+V9eD24tSXGFV//oSHtlkB+8v4UN0cDGtSJDGo3ErkuT9
-vIEEQRM1hQBiiBjpAqWiRCUZE2xKAtENthFkbPJevshOOA4Wg4wE9Vk209ghYBGm
-/ocPDRYABNCEUDUlzcSSAXSqK1DBQNcgkCllumoyE0EagRQABGRdFgnGiihgCJEM
-JKACg8WlBuMMBegGIZKsKQrzCUTDpogBEaGgQg0AB0zQeMQIU0aHizFf6uWZUGxh
-6kzvDPGvaCWQgUO+oJUsSqHfE0XjdtLG9lYGFCWT0YTfCUjuiDqObRQF/mQFkBUh
-7CWZo5jGE5Yd4f2QkThpOeFQgroiqqKoeXm6PWrFacByCFlVWJMAOPfQYhZpqoRB
-pqEhDWGsQ0lDJiW6aqoqwwg2CEQUq5pINUXQDVkgMhCxBGSAAVBUmXemi0Vs3i+y
-No0gi0xYwYiRTMUpX3qneeNQzuXmhmVnOX+Bc+eO+ftDJj8aznV+uBu+/mTf90MX
-lr2cZo2a3tXw3PN01uH27t1vl3/bikLVgdHHcxtOTgj0hA+cdR9+Pv2Yd0OmfHbZ
-Fu79kdyL+S9XnWiedGVx44er73xTX3V1jDhzbF9tXc3Ec3tX9mVi9zzgfWP4phbb
-M29NWRPHfRRz1vrmvu5fUD50cl661wMK96cvfV5WULm0pb4qUFBh1x39hForpywt
-vALTvQNzahZWR1zj1t3KevMqu68sE711/OiPiQM5BY0V0bb+I6t3jdWyCvNg56kF
-K3a+PpG59vN+WeD0s8rLnT0z0rGeji+7T0640fqpfKanfWT9wXdND8+/LVnS0sfV
-vZgvjO/2bsqpnbW57RfXKTB9
-=07bg
+owFdUm1oHEUYviR+1IaUYFsaiZq4NlBJuO7MzszOnh9Yr0SUYm0qbZTDc742t02y
+e93dOz1jaAyiJAWNghSurWl/tBBKf4SWBkNBkCpoBWvBiKU/ikShFeMPW9pf1ZkY
+sTq/dvZ93ud9nuedqZamzKqGLTMbCl9MbcYN56/yzEtX9y2NWDySNSs3YomhQIWp
++QrZsLJy1qCqcZaobBB1hpFU2T1J5wqmx6qqOAmiUKPsrJu1rdEeAzfNfhAOqLgc
+B4bLotRBBHDMMGS+j1yXOVxB6CHAPOBiIbBnQ9/BmrIUJel/plrLnMVA6r8IbDH4
+fN7ge5fxleUCI7bHpESYEuIzASUVviNs6QDoAmrbBpioeMXScFUYqcMqHhxSxTiK
+lv2KNDBVgKCmoS7ytBiWlMxYRSVECgOgCMC25/oCAxsJQJngSLjctomDsZBIV3zo
+OkohJXwfIySJJ5mDpOMox8GEQV8w5AuhmyDXjYQKjzsusQnCHEtPCkAE5dihklCb
+UiKhZ9Qnam8YaXHYQzYdNfe4GghldJvE/jUWJJyJwexAkJYq/O/4ynGURiIa0oBS
+mpaTnDGf1sqm4/VZxYsrZEUehFLv7c7FAg39XzAU9ljqjXIQq2JgENjVSvUxg1RV
+c3raoMRCAaQDIAi6rm0LpRiBhLpcMuro7TDpewBSJJBLPaBzlEow4kJh+3fYBVoo
+G9CcSTAQsrQSK2t0ouHBuzINqzL33N1onm5m9X2t/7znhyv3/lkA5f75y+/33//r
+Yn7kZ/Jqbdv6txe3nqmVc2NTczMTjy7sf6+eI/2Hjj/SPtXd8uMrld8+Hj3RnJD6
+9kny1cG+0vq3Pvll6UTf5wfPj1243rSRNW8+tOnrsQvBxbnZibTriUuPP//ui89s
+fWBuXQj5kX270a3q4k9NbZ1nmvJtT157s3WwsGddyzd7X/ije9w50B6G87vaG9su
+Hp2ZHjo7+cH17tvNH578VKztuHz69Kk1Hru2NFuXa268o/Kfnf39sRsnrxxG29fu
+bOz6aORcc0fvwoau49/SY6u/e61rYdtDt556Lmk91/30zVK5o7dvf+H73vHxA7kd
+49Mvq+nJLwvzP9SfrU/m0r8A
+=eDE2
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
