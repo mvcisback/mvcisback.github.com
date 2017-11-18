@@ -1,21 +1,218 @@
 <!DOCTYPE html>
 <html>
-<title>Sufficiently Random</title>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Description" content="">
+    <meta name="Keywords" content="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/pure-min.css">
+    <title> </title>
+  </head>
 
-<xmp theme="cyborg" style="display:none;">
-# Posts
+  <body>
+    <div class="pure-menu" id="menu">
+      <figure>
+        <img src="images/profile.jpg"/>
+      </figure>
 
-- [Over Engineered SVGs](posts/2014-08-19-over-engineered-diagrams.html)
-- [Typesafe Teapot](posts/2014-04-15-teapot.html)
-- [Art & Diagrams.hs](posts/2014-02-20-art.html)
-- [Dancing I](posts/2014-02-19-cs418-mp1.html)
-- [DJ-Roomba](posts/2014-02-15-dj-roomba.html)
-- [Nixos](posts/2014-01-29-nixos.html)
-- [Reboot](posts/2014-01-13-reboot.html)
+      <a id="home-link" href="#" class="pure-menu-heading pure-menu-link">
+        Home</a>
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <a href="#about" class="pure-menu-link">About</a></li>
+        <li class="pure-menu-item">
+          <a href="#publications" class="pure-menu-link">Publications</a></li>
+        <li><a href="https://github.com/mvcisback/" class="pure-menu-link">Github</a></li>
+        <li class="pure-menu-item">
+          <a href="#" class="pure-menu-link">Email</a>
+          <img src="images/e.png"/>
+          
+        </li>
+      </ul>
+    </div>
 
-# About
+    <div class="header">
+      <h1>Marcell Vazquez-Chanlatte</h1>
+    </div>
 
-</xmp>
+    <section class="content">
+      <section class="no_border" id="berkeley_pi">
 
-<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+      </section>
+      <section id="about">
+        <h2>About</h2>
+ I am a graduate student working with Prof. Sanjit A. Seshia in the
+ department of Computer Science at UC Berkeley. Please take the time
+ to explore this site and learn more about my research interests and
+ involvement in the community. Feel free to contact me using the
+ contact info on the left.
+
+        <h3>Research Interests</h3>
+        <p>
+          Specification Inference, Formal Methods for Cyberphysical Systems, Controller Synthesis, and Computer Aided Design
+        </p>
+      </section>
+
+      <section id="publications">
+        <h2>Publications</h2>
+        <li>Vazquez-Chanlatte, Marcell, et al. "Logical Clustering and
+        Learning for Time-Series Data." International Conference on
+        Computer Aided Verification. Springer, Cham, 2017.</li>
+      </section>
+    </section>
+  </body>
+  <style type="text/css" media="screen">
+    img {
+    max-width: 100%;
+    }
+
+    div#collab_imgs {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+    }
+
+    section#sponsors img {
+    float: left;
+    height: 4em;
+    }
+
+    div.pure-menu-horizontal {
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: lightblue;
+    }
+
+    div.pure-menu-horizontal a {
+    color: black;
+    }
+
+    .header {
+    margin: auto;
+    color: #333;
+    text-align: center;
+    padding: 2.5em 2em 0;
+    border-bottom: 1px solid #eee;
+    }
+
+    section {
+    border-bottom: 1px solid #eee;
+    }
+
+    .content {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 4em;
+    margin-bottom: 50px;
+    line-height: 1.6em;
+    }
+
+    .content p {
+    text-indent: 2em;
+    }
+
+    section#collab_list {
+    margin: 0 auto;
+    padding: 0 4em;
+    max-width: 800px;
+
+    }
+
+    body {
+    padding-left: 160px;
+    left: 0;
+    color: #777;
+    }
+
+    #menu {
+    width: 15%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: #191818;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    }
+
+    .header h1, .header h2 {
+    font-weight: 400;
+    font-size: xx-larger;
+    }
+    
+    .content h2, .content h3, .content h4{
+    color: #888;
+    font-weight: 300;
+    }
+
+    h4 {
+    margin: 0;
+    padding: 0;
+    }
+
+    section#collab_list .pure-img {
+    padding: 0;
+    margin: 0;
+    height: 80px;
+    }
+
+    section#berkeley_pi ul {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+    }
+
+    section#links {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+    }
+
+    section#links figure {
+    margin: 0;
+    width: 100%;
+    }
+
+    .no_border {
+    border-bottom: none;
+    }
+
+    #menu #home-link {
+    padding: 1.2em 1em;
+    border-bottom: 1px solid;
+    }
+
+    #people ul {
+    list-style-type: none;
+    }
+
+    figure {
+    display: inline-block;
+    border: 1px dotted gray;
+    margin: 20px; /* adjust as needed */
+    }
+    figure img {
+    vertical-align: top;
+    }
+
+    #people p, #people {
+    text-align: center;
+    text-indent: 0;
+    }
+
+    #people figure {
+    padding: 1em;
+    height: 9em;
+    width: 9em;
+    }
+
+    #people figure img {
+    margin-left:auto;
+    margin-right:auto;
+    height: 7em;
+    }
+    
+  </style>
 </html>
