@@ -2,228 +2,171 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="Description" content="">
+    <meta name="Description" content="MJVC personal website.">
     <meta name="Keywords" content="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/pure-min.css">
-    <title> </title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link href="http://thomasf.github.io/solarized-css/solarized-dark.min.css" rel="stylesheet"></link>
+    <title>MJVC</title>
   </head>
 
   <body>
-    <div class="pure-menu" id="menu">
-      <figure>
-        <img src="images/profile.jpg"/>
-      </figure>
-
-      <a id="home-link" href="#" class="pure-menu-heading pure-menu-link">
-        Home</a>
+    <div class="header">
+      <h1>Marcell J. Vazquez-Chanlatte</h1>
+    </div>
+    <div class="pure-menu pure-menu-horizontal">
       <ul class="pure-menu-list">
         <li class="pure-menu-item">
           <a href="#about" class="pure-menu-link">About</a></li>
         <li class="pure-menu-item">
           <a href="#publications" class="pure-menu-link">Publications</a></li>
-        <li><a href="https://github.com/mvcisback/" class="pure-menu-link">Github</a></li>
-        <li class="pure-menu-item">
-          <a href="#" class="pure-menu-link">Email</a>
-          <img src="images/e.png"/>
-          
-        </li>
+        <li class="pure-menu-item"><a href="https://github.com/mvcisback/" class="pure-menu-link">Github</a></li>
       </ul>
     </div>
 
-    <div class="header">
-      <h1>Marcell Vazquez-Chanlatte</h1>
-    </div>
-
     <section class="content">
-      <section class="no_border" id="berkeley_pi">
+      <section id="about" class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-3">
+          <figure>
+            <img src="images/profile.jpg" class="pure-img"
+                 style="max-width: 40vmin; max-height: 35vmin;
+                        margin-left: auto; margin-right: auto;"
 
-      </section>
-      <section id="about">
-        <h2>About</h2>
- I am a graduate student working with Prof. Sanjit A. Seshia in the
- department of Computer Science at UC Berkeley. Please take the time
- to explore this site and learn more about my research interests and
- involvement in the community. Feel free to contact me using the
- contact info on the left.
+                 />
+            <figcaption>
+              <div style="display:flex;justify-content:center;align-items:center;">
+                <img src="images/e.png"/>
+              </div>
 
-        <h3>Research Interests</h3>
-        <p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="pure-u-1 pure-u-md-2-3">
+          <h2>About</h2>
+          <p>
+            I am a graduate student working with Prof. Sanjit
+            A. Seshia in the department of Computer Science at UC
+            Berkeley. Please take the time to explore this site and
+            learn more about my research interests and involvement in
+            the community.
+          </p>
+
+          <h2>Research Interests</h2>
           <ol>
             <li>Specification Inference</li>
             <li>Formal Methods for Cyberphysical Systems</li>
             <li>AI Alignment</li>
             <li>Controller Synthesis</li>
           </ol>
-        </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <section class="pure-g">
+          <div class="pure-u-md-1-8 pure-u-1-5">
+              <div style="display:flex;justify-content:center;align-items:center;">
+                <img src="images/pyaiger.svg.png">
+              </div>
+          </div>
+          <div class="pure-u-md-7-8 pure-u-4-5">
+            <p>
+              <a href="https://github.com/mvcisback/py-aiger">pyAiger</a>:
+              A python library for manipulating sequential and
+              combinatorial circuits encoded using <b>(A)nd</b>
+              & <b>(I)nverter</b> <b>(G)ates</b> (AIGs).
+            </p>
+            <ul>
+              <li>Q: How is Py-Aiger pronounced? A: Like "pie" +
+                "grrr".</li>
+              <li>Q: Why python? Aren't you worried about
+                performance?! A: No. The goals of this library are ease
+                of use and hackability.</li>
+              <li>Q: No, I'm really concerned about performance! A:
+                This library is not suited to implement logic
+                solvers. For everything else, such as the creation and
+                manipulation of circuits with many thousands of gates in
+                between solver calls, the library is really fast
+                enough.</li>
+              <li>Q: Where does the name come from? A: Aiger is a
+                popular circuit format. The format is used in hardware
+                model checking, synthesis, and is supported by ABC. The
+                name is a combination of AIG (standing for
+                And-Inverter-Graph) and the austrian mountain
+                Eiger.</li>
+            </ul>
+          </div>
+        </section>
       </section>
 
       <section id="publications">        
-        <h2>Publications</h2>
+        <h2>Selected Publications</h2>
         <p>Disclaimer: 
-        Not updated frequently. I keep a more up-to-date list
-        on <a href="https://scholar.google.com/citations?user=3WoCRqAAAAAJ&hl=en&oi=ao">Google
-        Scholar</a>.
+          Not updated frequently. I keep a more up-to-date list
+          on <a href="https://scholar.google.com/citations?user=3WoCRqAAAAAJ&hl=en&oi=ao">Google
+            Scholar</a>.
         </p>
         <ol>
           <li>Vazquez-Chanlatte, Marcell, et al. "Logical Clustering and
             Learning for Time-Series Data." International Conference on
             Computer Aided Verification. Springer, Cham, 2017.</li>
+          <li>Vazquez-Chanlatte, Marcell, et al. "Generating Dominant Strategies for Continuous Two-Player Zero-Sum Games." Analysis and Design of Hybrid Systems. ADHS, 2018.</li>
         </ol>        
       </section>
     </section>
   </body>
   <style type="text/css" media="screen">
+    @import url('https://fonts.googleapis.com/css?family=Karla');
     img {
-    max-width: 100%;
+        max-width: 100%;
     }
 
     div#collab_imgs {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    column-count: 3;
-    }
-
-    section#sponsors img {
-    float: left;
-    height: 4em;
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
     }
 
     div.pure-menu-horizontal {
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background: lightblue;
-    }
-
-    div.pure-menu-horizontal a {
-    color: black;
+        text-align: center;
+        z-index: 1;
     }
 
     .header {
-    margin: auto;
-    color: #333;
-    text-align: center;
-    padding: 2.5em 2em 0;
-    border-bottom: 1px solid #eee;
-    }
-
-    section {
-    border-bottom: 1px solid #eee;
-    }
-
-    .content {
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 0 4em;
-    margin-bottom: 50px;
-    line-height: 1.6em;
-    }
-
-    .content p {
-    text-indent: 2em;
-    }
-
-    section#collab_list {
-    margin: 0 auto;
-    padding: 0 4em;
-    max-width: 800px;
-
-    }
-
-    body {
-    padding-left: 160px;
-    left: 0;
-    color: #777;
-    }
-
-    #menu {
-    width: 15%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1000;
-    background: #191818;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+        margin: auto;
+        text-align: center;
+        padding: 2.5em 2em 0;
     }
 
     .header h1, .header h2 {
-    font-weight: 400;
-    font-size: xx-larger;
-    }
-    
-    .content h2, .content h3, .content h4{
-    color: #888;
-    font-weight: 300;
-    }
-
-    h4 {
-    margin: 0;
-    padding: 0;
-    }
-
-    section#collab_list .pure-img {
-    padding: 0;
-    margin: 0;
-    height: 80px;
-    }
-
-    section#berkeley_pi ul {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    column-count: 3;
-    }
-
-    section#links {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    column-count: 3;
-    }
-
-    section#links figure {
-    margin: 0;
-    width: 100%;
-    }
-
-    .no_border {
-    border-bottom: none;
-    }
-
-    #menu #home-link {
-    padding: 1.2em 1em;
-    border-bottom: 1px solid;
-    }
-
-    #people ul {
-    list-style-type: none;
+        font-weight: 400;
+        font-size: xx-larger;
     }
 
     figure {
-    display: inline-block;
-    border: 1px dotted gray;
-    margin: 20px; /* adjust as needed */
+        border: 1px dotted gray;
+        margin: 20px; /* adjust as needed */
     }
     figure img {
-    vertical-align: top;
+        vertical-align: top;
     }
 
-    #people p, #people {
-    text-align: center;
-    text-indent: 0;
+    h1, h2, h3 {
+        border-bottom:1px solid gray;
+        padding-bottom:3px;
     }
 
-    #people figure {
-    padding: 1em;
-    height: 9em;
-    width: 9em;
+    h1 {
+        color: #cb4b16;
     }
 
-    #people figure img {
-    margin-left:auto;
-    margin-right:auto;
-    height: 7em;
+    p {
+        margin: 1em;
+        padding-right: 1em;
+    }
+
+    h1, h2, h3, p, li {
+        font-family: 'Karla', sans-serif;
     }
     
   </style>
