@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0" xmlns:wfw="http://wellformedweb.org/CommentAPI/">
+ <channel>
+    <title>MJVC RSS Feed</title>
+    <description>
+      RSS feed for Marcell Vazquez-Chanlatte's website/blod
+    </description>
+    <lastBuildDate>Tue, 31 Dec 2019 13:02:08 -0500</lastBuildDate>
+    <link>https://www.mjvc.me</link>
+
+    <item>
+      <title>Started RSS feed for website updates.</title>
+      <pubDate>Tue, 31 Dec 2019 13:02:08 -0500</pubDate>
+      <link>https://www.mjvc.me</link>
+    </item>
+  </channel>
+</rss>
