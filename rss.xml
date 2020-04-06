@@ -6,7 +6,6 @@
     <description>
       RSS feed for Marcell Vazquez-Chanlatte's website/blog/publications/etc.
     </description>
-    <lastBuildDate>Tue, 31 Dec 2019 13:02:08 -0500</lastBuildDate>
     <link>https://www.mjvc.me</link>
 
     <item>
@@ -16,6 +15,17 @@
         Started RSS feed for website updates. Will provide updates on
         various Marcell related things :).
       </description>
+    </item>
+    <item>
+      <title>CAV 2020</title>
+      <pubDate>Sunday, 05 April 2020 21:39:00 -0800</pubDate>
+      <description>
+        My paper on Maximum Causal Entropy Specification Inference
+        from Demonstrations was accepted (with very positive reviews) into CAV
+        2020! Unfortunately, the py-aiger tool paper did not fair as well.
+        C'est la vie I suppose. Particularly during these trying times.
+      </description>
+      <link>https://arxiv.org/abs/1907.11792</link>
     </item>
   </channel>
 </rss>
