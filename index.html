@@ -29,20 +29,31 @@
 
     <section class="content">
       <section id="about" class="pure-g">
-        <div class="pure-u-1-3">
-          <figure>
-            <img src="images/profile.jpg" class="pure-img"
-                 style="max-width: 100%; max-height: 100%;
-                        margin-left: auto; margin-right: auto;"
-                 />
-            <figcaption>
-              <div style="display:flex;justify-content:center;align-items:center;">
-                <img src="images/e.png"/>
-              </div>
+          <div class="pure-u-1-3">
+              <figure>
+                  <img src="images/marcell.svg" class="pure-img"
+                       style="max-width: 100%; max-height: 100%;
+                              margin-left: auto; margin-right: auto;"
+                  />
+                  
+                  <figcaption>
+                      <img loading="lazy" src="images/e.png"/>
+                      <details>
+                          <summary>
+                              Illustration by <a href="">Dr. Elizabeth Polgreen</a>. 
+                              </br></br>
+                              Click here to see original image.
+                          </summary>
 
-            </figcaption>
-          </figure>
-        </div>
+                          <img src="images/profile.jpg" class="pure-img"
+                               style="max-width: 100%; max-height: 100%;
+                                      margin-left: auto; margin-right: auto;"
+                          />
+
+                      </details>
+                  </figcaption>
+              </figure>
+          </div>
         <div class="pure-u-2-3">
           <h2>About</h2>
           <p>
@@ -98,7 +109,7 @@
         </section>
         <section class="pure-g">
           <div class="pure-u-md-2-24 pure-u-1-5">
-            <img src="images/pyaiger-bv.svg" class="pure-img logo"/>
+            <img  src="images/pyaiger-bv.svg" class="pure-img logo"/>
           </div>
           <div class="pure-u-md-22-24 pure-u-4-5">
             <p>
@@ -120,7 +131,7 @@
             
         <section class="pure-g">
           <div class="pure-u-md-2-24 pure-u-1-5">
-            <img src="images/mtl_logo.png" class="pure-img" style="margin-top: 20px; background-color: white; padding:3px; border: 3px solid black;"/>
+            <img loading="lazy" src="images/mtl_logo.png" class="pure-img" style="margin-top: 20px; background-color: white; padding:3px; border: 3px solid black;"/>
           </div>
           <div class="pure-u-md-22-24 pure-u-4-5">
             <p>
@@ -134,7 +145,7 @@
         </section>
         <section class="pure-g">
           <div class="pure-u-md-2-24 pure-u-1-5">
-            <img src="images/discretesignals_logo.svg" class="pure-img"/>
+            <img loading="lazy" src="images/discretesignals_logo.svg" class="pure-img"/>
           </div>
           <div class="pure-u-md-22-24 pure-u-4-5">
             <p>
@@ -173,7 +184,7 @@
         </section>
         <section class="pure-g">
           <div class="pure-u-md-2-24 pure-u-1-5">
-            <img src="images/sifd.svg" class="pure-img"/>
+            <img loading="lazy" src="images/sifd.svg" class="pure-img"/>
           </div>
           <div class="pure-u-md-22-24 pure-u-4-5">
             <p>
@@ -187,7 +198,7 @@
         </section>
         <section class="pure-g">
           <div class="pure-u-md-2-24 pure-u-1-5">
-            <img src="https://raw.githubusercontent.com/mvcisback/monotone-bipartition/master/assets/bipartition.svg?sanitize=true" class="pure-img"/>
+            <img loading="lazy"  src="https://raw.githubusercontent.com/mvcisback/monotone-bipartition/master/assets/bipartition.svg?sanitize=true" class="pure-img"/>
           </div>
           <div class="pure-u-md-22-24 pure-u-4-5">
             <p>
@@ -206,7 +217,7 @@
         </section>
         <section class="pure-g">
           <div class="pure-u-md-2-24 pure-u-1-5">
-            <img src="https://raw.githubusercontent.com/mvcisback/LogicalLens/master/assets/bipartition.svg?sanitize=true" class="pure-img"/>
+            <img loading="lazy" src="https://raw.githubusercontent.com/mvcisback/LogicalLens/master/assets/bipartition.svg?sanitize=true" class="pure-img"/>
           </div>
           <div class="pure-u-md-22-24 pure-u-4-5">
             <p>
@@ -395,5 +406,23 @@
         border-radius: 50%;
     }
     
+
+   figure details {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       margin-top: 1em;
+   }
+
+   figure figcaption {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       text-align: center;
+   }
+
+   figcaption summary {
+       padding: 1em;
+   }
   </style>
 </html>
