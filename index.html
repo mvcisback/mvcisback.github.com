@@ -15,15 +15,15 @@
         <header class="header">
             <h1>Marcell J. Vazquez-Chanlatte</h1>
             <nav>
-                <ul>
-                    <li>
+                <ul class="child-borders child-shadows-hover">
+                    <li class="hover">
                         <a href="#about" class="pure-menu-link">About</a></li>
-                    <li>
+                    <li class="hover">
                         <a href="#code" class="pure-menu-link">Code</a></li>
-                    <li>
+                    <li class="hover">
                         <a href="#publications" class="pure-menu-link">Publications</a></li>
-                    <li><a href="https://github.com/mvcisback/" class="pure-menu-link">Github</a></li>
-                    <li><a href="https://mjvc.me/rss.xml" class="pure-menu-link">RSS</a></li>
+                    <li class="hover"><a href="https://github.com/mvcisback/" class="pure-menu-link">Github</a></li>
+                    <li class="hover"><a href="https://mjvc.me/rss.xml" class="pure-menu-link">RSS</a></li>
                 </ul>
             </nav>
         </header>
@@ -69,7 +69,7 @@
                     </div>
             </section>
 
-            <section id="research-interests">
+            <section id="research-interests" class="border border-2 border-primary">
                 <h2>Research Interests</h2>
                 <ol>
                     <li>Specification Inference</li>
@@ -79,7 +79,7 @@
                 </ol>
             </section>
 
-            <section id="code">
+            <section id="code" class="border border-4 border-primary">
                 <h2>Select Software Projects</h2>
                 <p>See <a href="https://github.com/mvcisback/">Github</a> for a more exhaustive list.</p>
 
@@ -271,7 +271,7 @@
                 </section>
             </section>
 
-            <section id="publications">        
+            <section id="publications" class="border border border-primary">        
                 <h2>Select Publications</h2>
                 <h3>Preprints</h3>
                 <ol>
@@ -286,13 +286,15 @@
                         Vazquez-Chanlatte, Marcell, and Sanjit
                         A. Seshia. "<strong>Maximum Causal
                         Entropy Specification Inference from Demonstrations</strong>", CAV, 2020.
+                        </br>
                         <a href="papers/cav2020.pdf">pdf</a>
                         <a href="https://arxiv.org/pdf/1907.11792.pdf">arxiv</a>
                         <a href="papers/cav2020.bib">bibtex</a>
                     </li>
                     <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Time Series Learning
                         using Monotonic Logical Properties.</strong>", International
-                        Conference on Runtime Verification, RV, 2018
+                        Conference on Runtime Verification, RV, 2018.
+                        </br>
                         <a href="papers/rv2018_logical_ts_learning.pdf">pdf</a>
                         <a href="https://arxiv.org/abs/1802.08924">arxiv</a>
                         <a href="papers/rv2018_logical_ts_learning.bib">bibtex</a>
@@ -300,8 +302,8 @@
                     </li>
                     <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Learning Task
                         Specifications from Demonstrations.</strong>", Advances in Neural
-                        Information Processing Systems, NeurIPS, 2018 (formally
-                        known as NIPS).
+                        Information Processing Systems, NeurIPS, 2018.
+                        </br>
                         <a href="papers/nips2018_specinference_from_demos.pdf">pdf</a>
                         <a href="https://arxiv.org/abs/1710.03875">arxiv</a>
                         <a href="papers/nips2018_specinference_from_demos.bib">bibtex</a>
@@ -309,6 +311,7 @@
                     <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Logical Clustering and
                         Learning for Time-Series Data.</strong>" International Conference on
                         Computer Aided Verification. Springer, Cham, 2017.
+                        </br>
                         <a href="papers/cav2017.pdf">pdf</a>
                         <a href="https://arxiv.org/abs/1612.07823">arxiv</a>
                         <a href="papers/cav2017.bib">bibtex</a>
@@ -316,6 +319,7 @@
                     <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Generating Dominant
                         Strategies for Continuous Two-Player Zero-Sum Games.</strong>"
                         Analysis and Design of Hybrid Systems. ADHS, 2018.
+                        </br>
                         <a href="papers/adhs18.pdf">pdf</a>
                         <a href="papers/adhs18.bib">bibtex</a>
                     </li>
@@ -325,8 +329,7 @@
                         Human Systems. CPHS, 2018</li>
                 </ol>        
             </section>
-            </section>
-            <section id="teaching">
+            <section id="teaching" class="border border-primary border-4">
                 <h2>Teaching Experience</h2>
                 <ol>
                     <li>
@@ -371,6 +374,12 @@
          max-width: 100%;
      }
 
+     main > section {
+         margin: 1em;
+         padding: 1em;
+         background-color: #ffffff08;
+     }
+
      div#collab_imgs {
          -moz-column-count: 3;
          -webkit-column-count: 3;
@@ -403,6 +412,10 @@
      h1, h2, h3 {
          border-bottom:1px solid gray;
          padding-bottom:3px;
+     }
+
+     h2 {
+         margin: 0;
      }
 
      h1 {
@@ -454,7 +467,7 @@
          column-count: 2;
      }
 
-     #research-interests h2 {
+     #research-interests {
          margin: 0;
      }
 
@@ -482,7 +495,7 @@
      }
 
      #code section:nth-child(even) {
-         background: #09333e;
+         background: #6c79ac29;
      }
 
      #code section:nth-child(odd) {
@@ -506,6 +519,10 @@
 
      nav li:before {
          content: "";
+     }
+
+     #publications li {
+         margin: 1em;
      }
 
     </style>
