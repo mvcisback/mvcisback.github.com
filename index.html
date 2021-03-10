@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
         <link href="https://thomasf.github.io/solarized-css/solarized-dark.min.css" rel="stylesheet"></link>
         <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css">
+        <link rel="stylesheet" href="personal.css">
         <title>Marcell Vazquez-Chanlatte</title>
     </head>
 
@@ -83,142 +84,148 @@
                 <h2>Select Software Projects</h2>
                 <p>See <a href="https://github.com/mvcisback/">Github</a> for a more exhaustive list.</p>
 
-                <h3>Sequential Circuits</h3>
-                <section class="pure-g">
-                    <div class="pure-u-md-2-24 pure-u-1-5">
-                        <img src="images/pyaiger.svg" class="pure-img logo"/>
-                    </div>
-                    <div class="pure-u-md-22-24 pure-u-4-5">
-                        <p>
-                            <a href="https://github.com/mvcisback/py-aiger">pyAiger</a>:
-                            A python library for convenient modeling/ manipulation
-                            of sequential circuits, combinatorial circuits, and
-                            boolean expressions represented as <b>(A)nd</b>
-                            & <b>(I)nverter</b> <b>(G)ates</b> (AIGs). Co-developed
-                            with <a href="https://people.eecs.berkeley.edu/~rabe/">Markus
-                                N. Rabe</a>.
-                        </p>
-                    </div>
-                </section>
-                <section class="pure-g">
-                    <div class="pure-u-md-2-24 pure-u-1-5">
-                        <img  src="images/pyaiger-bv.svg" class="pure-img logo"/>
-                    </div>
-                    <div class="pure-u-md-22-24 pure-u-4-5">
-                        <p>
-                            <a href="https://github.com/mvcisback/py-aiger-bv">pyAiger-BV</a>:
-                            Word Level (bitvector) abstractions on top
-                            of <a href="https://github.com/mvcisback/py-aiger">pyAiger</a>.
-                            Co-developed
-                            with <a href="https://people.eecs.berkeley.edu/~rabe/">Markus
-                                N. Rabe</a>.
-                        </p>
-                    </div>
-                </section>
-                <p>There are <a href="https://github.com/mvcisback/py-aiger#ecosystem">a
-                    number of other projects</a> that I have spawned off the py-aiger code
-                    base for supporting bdds, SAT solvers, past tense LTL, gridworlds, and
-                    conversion to and from DFAs.
-                </p>
-                <h3>Time-Series</h3>
+                <details>
+                    <summary>Sequential Circuits</summary>
+                    <section class="pure-g">
+                        <div class="pure-u-md-2-24 pure-u-1-5">
+                            <img src="images/pyaiger.svg" class="pure-img logo"/>
+                        </div>
+                        <div class="pure-u-md-22-24 pure-u-4-5">
+                            <p>
+                                <a href="https://github.com/mvcisback/py-aiger">pyAiger</a>:
+                                A python library for convenient modeling/ manipulation
+                                of sequential circuits, combinatorial circuits, and
+                                boolean expressions represented as <b>(A)nd</b>
+                                & <b>(I)nverter</b> <b>(G)ates</b> (AIGs). Co-developed
+                                with <a href="https://people.eecs.berkeley.edu/~rabe/">Markus
+                                    N. Rabe</a>.
+                            </p>
+                        </div>
+                    </section>
+                    <section class="pure-g">
+                        <div class="pure-u-md-2-24 pure-u-1-5">
+                            <img  src="images/pyaiger-bv.svg" class="pure-img logo"/>
+                        </div>
+                        <div class="pure-u-md-22-24 pure-u-4-5">
+                            <p>
+                                <a href="https://github.com/mvcisback/py-aiger-bv">pyAiger-BV</a>:
+                                Word Level (bitvector) abstractions on top
+                                of <a href="https://github.com/mvcisback/py-aiger">pyAiger</a>.
+                                Co-developed
+                                with <a href="https://people.eecs.berkeley.edu/~rabe/">Markus
+                                    N. Rabe</a>.
+                            </p>
+                        </div>
+                    </section>
+                    <p>There are <a href="https://github.com/mvcisback/py-aiger#ecosystem">a
+                        number of other projects</a> that I have spawned off the py-aiger code
+                        base for supporting bdds, SAT solvers, past tense LTL, gridworlds, and
+                        conversion to and from DFAs.
+                    </p>
+                </details>
+                <details>
+                    <summary>Time-Series</summary>
                 
-                <section class="pure-g">
-                    <div class="pure-u-md-2-24 pure-u-1-5">
-                        <img loading="lazy" src="images/mtl_logo.png" class="pure-img" style="margin-top: 20px; background-color: white; padding:3px; border: 3px solid black;"/>
-                    </div>
-                    <div class="pure-u-md-22-24 pure-u-4-5">
-                        <p>
-                            <a href="https://github.com/mvcisback/py-metric-temporal-logic">py-Metric-Temporal-Logic</a>:
-                            Python library for working with Metric Temporal Logic
-                            (MTL). Metric Temporal Logic is an extension of Linear
-                            Temporal Logic (LTL) for specifying properties over time
-                            series.
-                        </p>
-                    </div>
-                </section>
-                <section class="pure-g">
-                    <div class="pure-u-md-2-24 pure-u-1-5">
-                        <img loading="lazy" src="images/discretesignals_logo.svg" class="pure-img"/>
-                    </div>
-                    <div class="pure-u-md-22-24 pure-u-4-5">
-                        <p>
-                            <a href="https://github.com/mvcisback/discretesignals">DiscreteSignals</a>:
-                            A Python embedded domain specific language for modeling
-                            and manipulating discrete time signals. The key distinction between many other timeseries
-                            libraries is the lightweight encoding of non-uniform time steps. This abstraction made 
-                            implementing the py-Metric-Temporal-Logic library much easier.
-                        </p>
-                    </div>
-                </section>
-                <h3>Specification Inference</h3>
-                <section class="pure-g">
-                    <div class="pure-u-md-2-24 pure-u-1-5">
-                    </div>
-                    
-                    <div class="pure-u-md-22-24 pure-u-4-5">
-                        <p>
-                            <strong>WARNING! Not yet stable! Likely to dramatically change
-                                or bit-rot!</strong>
+                    <section class="pure-g">
+                        <div class="pure-u-md-2-24 pure-u-1-5">
+                            <img loading="lazy" src="images/mtl_logo.png" class="pure-img" style="margin-top: 20px; background-color: white; padding:3px; border: 3px solid black;"/>
+                        </div>
+                        <div class="pure-u-md-22-24 pure-u-4-5">
+                            <p>
+                                <a href="https://github.com/mvcisback/py-metric-temporal-logic">py-Metric-Temporal-Logic</a>:
+                                Python library for working with Metric Temporal Logic
+                                (MTL). Metric Temporal Logic is an extension of Linear
+                                Temporal Logic (LTL) for specifying properties over time
+                                series.
+                            </p>
+                        </div>
+                    </section>
+                    <section class="pure-g">
+                        <div class="pure-u-md-2-24 pure-u-1-5">
+                            <img loading="lazy" src="images/discretesignals_logo.svg" class="pure-img"/>
+                        </div>
+                        <div class="pure-u-md-22-24 pure-u-4-5">
+                            <p>
+                                <a href="https://github.com/mvcisback/discretesignals">DiscreteSignals</a>:
+                                A Python embedded domain specific language for modeling
+                                and manipulating discrete time signals. The key distinction between many other timeseries
+                                libraries is the lightweight encoding of non-uniform time steps. This abstraction made 
+                                implementing the py-Metric-Temporal-Logic library much easier.
+                            </p>
+                        </div>
+                    </section>
+                </details>
+                <details>
+                    <summary>Specification Inference</summary>
+                    <section class="pure-g">
+                        <div class="pure-u-md-2-24 pure-u-1-5">
+                        </div>
+                        
+                        <div class="pure-u-md-22-24 pure-u-4-5">
+                            <p>
+                                <strong>WARNING! Not yet stable! Likely to dramatically change
+                                    or bit-rot!</strong>
 
-                            <a href="https://github.com/mvcisback/yasit">yasit -
-                                (Y)et (A)nother (S)pecification (I)nference (T)ool</a>:
-                            Yasit is a tool for learning "Boolean Specifications"
-                            from demonstrations. In particular, we are given a set
-                            of examples from an agent (also called the teacher) who
-                            is performing some task in an environment and ask what
-                            is the most likey task given the examples (also called
-                            the demonstrations). This can be seen as an extension of
-                            Maxium Entropy Inverse Reinforcement Learning to Boolean
-                            Trajectory level rewards. This can also be seen as a
-                            tool performing unsupervised specification mining in the
-                            presence of noise. See "Learning Task Specifications from Demonstrations".
-                        </p>
-                    </div>
-                </section>
-                <section class="pure-g">
-                    <div class="pure-u-md-2-24 pure-u-1-5">
-                        <img loading="lazy" src="images/sifd.svg" class="pure-img"/>
-                    </div>
-                    <div class="pure-u-md-22-24 pure-u-4-5">
-                        <p>
-                            <a
-                                href="https://github.com/mvcisback/gridworld-visualizer">Gridworld
-                                Visualizer</a>: Python Code for visualizing gridworlds
-                            used in my research (see Learning Task Specifcations
-                            from Demonstrations and the yasit tool).
-                        </p>
-                    </div>
-                </section>
-                <section class="pure-g">
-                    <div class="pure-u-md-2-24 pure-u-1-5">
-                        <img loading="lazy"  src="https://raw.githubusercontent.com/mvcisback/monotone-bipartition/master/assets/bipartition.svg?sanitize=true" class="pure-img"/>
-                    </div>
-                    <div class="pure-u-md-22-24 pure-u-4-5">
-                        <p>
-                            <a href="https://github.com/mvcisback/monotone-bipartition">Monotone
-                                Bipartition:</a> This library enable manipulating
-                            and comparing implicitly defined monotone bipartitions
-                            on the unit box using adaptive mesh refinement.
+                                <a href="https://github.com/mvcisback/yasit">yasit -
+                                    (Y)et (A)nother (S)pecification (I)nference (T)ool</a>:
+                                Yasit is a tool for learning "Boolean Specifications"
+                                from demonstrations. In particular, we are given a set
+                                of examples from an agent (also called the teacher) who
+                                is performing some task in an environment and ask what
+                                is the most likey task given the examples (also called
+                                the demonstrations). This can be seen as an extension of
+                                Maxium Entropy Inverse Reinforcement Learning to Boolean
+                                Trajectory level rewards. This can also be seen as a
+                                tool performing unsupervised specification mining in the
+                                presence of noise. See "Learning Task Specifications from Demonstrations".
+                            </p>
+                        </div>
+                    </section>
+                    <section class="pure-g">
+                        <div class="pure-u-md-2-24 pure-u-1-5">
+                            <img loading="lazy" src="images/sifd.svg" class="pure-img"/>
+                        </div>
+                        <div class="pure-u-md-22-24 pure-u-4-5">
+                            <p>
+                                <a
+                                    href="https://github.com/mvcisback/gridworld-visualizer">Gridworld
+                                    Visualizer</a>: Python Code for visualizing gridworlds
+                                used in my research (see Learning Task Specifcations
+                                from Demonstrations and the yasit tool).
+                            </p>
+                        </div>
+                    </section>
+                    <section class="pure-g">
+                        <div class="pure-u-md-2-24 pure-u-1-5">
+                            <img loading="lazy"  src="https://raw.githubusercontent.com/mvcisback/monotone-bipartition/master/assets/bipartition.svg?sanitize=true" class="pure-img"/>
+                        </div>
+                        <div class="pure-u-md-22-24 pure-u-4-5">
+                            <p>
+                                <a href="https://github.com/mvcisback/monotone-bipartition">Monotone
+                                    Bipartition:</a> This library enable manipulating
+                                and comparing implicitly defined monotone bipartitions
+                                on the unit box using adaptive mesh refinement.
 
-                            Inspired by <a href="https://hal.archives-ouvertes.fr/hal-01556243/">
-                                Maler, Oded. "Learning Monotone Partitions of
-                                Partially-Ordered Domains (Work in Progress)."
-                                (2017).</a> and the main
-                            work horse our series of papers on
-                            Logical Lens and Logical Clustering.
-                    </div>
-                </section>
-                <section class="pure-g">
-                    <div class="pure-u-md-2-24 pure-u-1-5">
-                        <img loading="lazy" src="https://raw.githubusercontent.com/mvcisback/LogicalLens/master/assets/bipartition.svg?sanitize=true" class="pure-img"/>
-                    </div>
-                    <div class="pure-u-md-22-24 pure-u-4-5">
-                        <p>
-                            <a href="https://github.com/mvcisback/LogicalLens">Logical Lens:</a> Implementation
-                            of Logical Lens algorithm for (1) using a parametric specification to  map data to an abstract boundary and
-                            (2) compute the induced "Logical Distance" between data w.r.t. a parametric specification.
-                    </div>
-                </section>
+                                Inspired by <a href="https://hal.archives-ouvertes.fr/hal-01556243/">
+                                    Maler, Oded. "Learning Monotone Partitions of
+                                    Partially-Ordered Domains (Work in Progress)."
+                                    (2017).</a> and the main
+                                work horse our series of papers on
+                                Logical Lens and Logical Clustering.
+                        </div>
+                    </section>
+                    <section class="pure-g">
+                        <div class="pure-u-md-2-24 pure-u-1-5">
+                            <img loading="lazy" src="https://raw.githubusercontent.com/mvcisback/LogicalLens/master/assets/bipartition.svg?sanitize=true" class="pure-img"/>
+                        </div>
+                        <div class="pure-u-md-22-24 pure-u-4-5">
+                            <p>
+                                <a href="https://github.com/mvcisback/LogicalLens">Logical Lens:</a> Implementation
+                                of Logical Lens algorithm for (1) using a parametric specification to  map data to an abstract boundary and
+                                (2) compute the induced "Logical Distance" between data w.r.t. a parametric specification.
+                        </div>
+                    </section>
+                </summary>
 
                 <h3>Automata</h3>
                 <section class="pure-g">
@@ -280,56 +287,58 @@
                         <a href="https://arxiv.org/abs/1903.09354">arxiv</a>
                     </li>
                 </ol>
-                <h3>Published</h3>
-                <ol>
-                    <li>
-                        Vazquez-Chanlatte, Marcell, and Sanjit
-                        A. Seshia. "<strong>Maximum Causal
-                        Entropy Specification Inference from Demonstrations</strong>", CAV, 2020.
-                        </br>
-                        <a href="papers/cav2020.pdf">pdf</a>
-                        <a href="https://arxiv.org/pdf/1907.11792.pdf">arxiv</a>
-                        <a href="papers/cav2020.bib">bibtex</a>
-                        <a href="/CAV2020">slides</a>
-                        <a href="https://youtu.be/5oF2FB4ZL9g">CAV 2020 Talk</a>
-                    </li>
-                    <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Time Series Learning
-                        using Monotonic Logical Properties.</strong>", International
-                        Conference on Runtime Verification, RV, 2018.
-                        </br>
-                        <a href="papers/rv2018_logical_ts_learning.pdf">pdf</a>
-                        <a href="https://arxiv.org/abs/1802.08924">arxiv</a>
-                        <a href="papers/rv2018_logical_ts_learning.bib">bibtex</a>
-                        <a href="/RV2018">slides</a>
-                    </li>
-                    <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Learning Task
-                        Specifications from Demonstrations.</strong>", Advances in Neural
-                        Information Processing Systems, NeurIPS, 2018.
-                        </br>
-                        <a href="papers/nips2018_specinference_from_demos.pdf">pdf</a>
-                        <a href="https://arxiv.org/abs/1710.03875">arxiv</a>
-                        <a href="papers/nips2018_specinference_from_demos.bib">bibtex</a>
-                    </li>
-                    <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Logical Clustering and
-                        Learning for Time-Series Data.</strong>" International Conference on
-                        Computer Aided Verification. Springer, Cham, 2017.
-                        </br>
-                        <a href="papers/cav2017.pdf">pdf</a>
-                        <a href="https://arxiv.org/abs/1612.07823">arxiv</a>
-                        <a href="papers/cav2017.bib">bibtex</a>
-                    </li>
-                    <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Generating Dominant
-                        Strategies for Continuous Two-Player Zero-Sum Games.</strong>"
-                        Analysis and Design of Hybrid Systems. ADHS, 2018.
-                        </br>
-                        <a href="papers/adhs18.pdf">pdf</a>
-                        <a href="papers/adhs18.bib">bibtex</a>
-                    </li>
-                    <li>(Extended Abstract) Vazquez-Chanlatte, Marcell, et al.
-                        "<strong>Communicating Compositional and Temporal Specifications
-                        by Demonstration.</strong>" IFAC Conference on Cyber-Physical &
-                        Human Systems. CPHS, 2018</li>
-                </ol>        
+                <details>
+                    <summary>Published</summary>
+                    <ol>
+                        <li>
+                            Vazquez-Chanlatte, Marcell, and Sanjit
+                            A. Seshia. "<strong>Maximum Causal
+                            Entropy Specification Inference from Demonstrations</strong>", CAV, 2020.
+                              </br>
+                              <a href="papers/cav2020.pdf">pdf</a>
+                              <a href="https://arxiv.org/pdf/1907.11792.pdf">arxiv</a>
+                              <a href="papers/cav2020.bib">bibtex</a>
+                              <a href="/CAV2020">slides</a>
+                              <a href="https://youtu.be/5oF2FB4ZL9g">CAV 2020 Talk</a>
+                        </li>
+                        <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Time Series Learning
+                            using Monotonic Logical Properties.</strong>", International
+                            Conference on Runtime Verification, RV, 2018.
+                              </br>
+                              <a href="papers/rv2018_logical_ts_learning.pdf">pdf</a>
+                              <a href="https://arxiv.org/abs/1802.08924">arxiv</a>
+                              <a href="papers/rv2018_logical_ts_learning.bib">bibtex</a>
+                              <a href="/RV2018">slides</a>
+                        </li>
+                        <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Learning Task
+                            Specifications from Demonstrations.</strong>", Advances in Neural
+                            Information Processing Systems, NeurIPS, 2018.
+                              </br>
+                              <a href="papers/nips2018_specinference_from_demos.pdf">pdf</a>
+                              <a href="https://arxiv.org/abs/1710.03875">arxiv</a>
+                              <a href="papers/nips2018_specinference_from_demos.bib">bibtex</a>
+                        </li>
+                        <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Logical Clustering and
+                            Learning for Time-Series Data.</strong>" International Conference on
+                            Computer Aided Verification. Springer, Cham, 2017.
+                              </br>
+                              <a href="papers/cav2017.pdf">pdf</a>
+                              <a href="https://arxiv.org/abs/1612.07823">arxiv</a>
+                              <a href="papers/cav2017.bib">bibtex</a>
+                        </li>
+                        <li>Vazquez-Chanlatte, Marcell, et al. "<strong>Generating Dominant
+                            Strategies for Continuous Two-Player Zero-Sum Games.</strong>"
+                            Analysis and Design of Hybrid Systems. ADHS, 2018.
+                              </br>
+                              <a href="papers/adhs18.pdf">pdf</a>
+                              <a href="papers/adhs18.bib">bibtex</a>
+                        </li>
+                        <li>(Extended Abstract) Vazquez-Chanlatte, Marcell, et al.
+                            "<strong>Communicating Compositional and Temporal Specifications
+                            by Demonstration.</strong>" IFAC Conference on Cyber-Physical &
+                            Human Systems. CPHS, 2018</li>
+                    </ol>
+                </details>
             </section>
             <section id="teaching" class="border border-primary border-4">
                 <h2>Teaching Experience</h2>
@@ -348,184 +357,4 @@
             </section>
         </main>
     </body>
-    <style type="text/css" media="screen">
-     @import url('https://fonts.googleapis.com/css?family=Karla');
-
-     body {
-         color: #dfd7d7;
-         max-width: 100%;
-         justify-content: center;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-     }
-
-     body a, .pure-menu-link {
-         color: #ff8451;
-     }
-
-     body a:visited {
-         color: #cb4b16;
-     }
-
-     main {
-         max-width: 80%;o
-     }
-
-     img {
-         max-width: 100%;
-     }
-
-     main > section {
-         margin: 1em;
-         padding: 1em;
-         background-color: #ffffff08;
-     }
-
-     div#collab_imgs {
-         -moz-column-count: 3;
-         -webkit-column-count: 3;
-         column-count: 3;
-     }
-
-     div.pure-menu-horizontal {
-         text-align: center;
-         z-index: 1;
-     }
-
-     .header {
-         margin: auto;
-         text-align: center;
-         padding: 2.5em 2em 0;
-     }
-
-     .header h1, .header h2 {
-         font-weight: 400;
-         font-size: xx-larger;
-     }
-
-     figure {
-         margin: 20px; /* adjust as needed */
-     }
-     figure img {
-         vertical-align: top;
-     }
-
-     h1, h2, h3 {
-         border-bottom:1px solid gray;
-         padding-bottom:3px;
-     }
-
-     h2 {
-         margin: 0;
-     }
-
-     h1 {
-         color: #cb4b16;
-         margin: 0;
-     }
-
-     p {
-         max-width: 80em;
-         margin: 1em;
-         padding-right: 1em;
-     }
-
-
-     .logo {
-         border-radius: 50%;
-     }
-     
-
-     figure details {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         margin-top: 1em;
-     }
-
-     figure figcaption {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         text-align: center;
-     }
-
-     figcaption summary {
-         padding: 1em;
-     }
-
-     img#profile {
-         
-     }
-
-     #research-interests {
-         display: flex;
-         justify-content: center;
-         flex-direction: column;
-     }
-
-     #research-interests ol {
-         column-count: 2;
-     }
-
-     #research-interests {
-         margin: 0;
-     }
-
-     #about {
-         margin: 1em;
-
-         display: flex;
-         flex-direction: row;
-         justify-content: space-around;
-     }
-
-     #about img {
-         max-width: 10em;
-     }
-
-     #about figure {
-         align-items: center;
-         display: flex;
-         flex-direction: column;
-         max-width: 30%;
-     }
-
-     #about div {
-         max-width: 66%;
-     }
-
-     #code section:nth-child(even) {
-         background: #6c79ac29;
-     }
-
-     #code section:nth-child(odd) {
-         background: #aac89521;
-     }
-
-     #code section {
-         padding: 0.5em;
-     }
-
-     nav {
-         background-color: unset;
-         justify-content: center;
-         display: flex;
-     }
-
-     nav ul {
-         display: flex;
-         flex-direction: row;
-     }
-
-     nav li:before {
-         content: "";
-     }
-
-     #publications li {
-         margin: 1em;
-     }
-
-    </style>
 </html>
