@@ -45,6 +45,16 @@
       </description>
       <link>https://youtu.be/5oF2FB4ZL9g</link>
     <item>
+      <title>CAV 2021 and RSS 2021</title>
+      <pubDate>Wednesday, 14 July 2021 14:07:00 -0800</pubDate>
+      <description>
+        Added RSS 2021 paper on Entropy Guided Control Improvisation. Check out the video and paper for details!
+
+        Also added CAV 2021 paper on model checking finite-horizon
+        properties using BDDs (see CAV 2020 paper for more general MDP
+        case.)
+        </description>>
+        <link>https://youtu.be/gYPutlOLqhc</link>
     </item>
   </channel>
 </rss>
