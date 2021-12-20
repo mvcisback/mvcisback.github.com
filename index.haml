@@ -70,11 +70,10 @@
     %section#research-interests.border.border-2.border-primary
       %h2 Research Interests 🔬
       %ol
-        %li Specification Inference
-        %li Formal Methods
-        %li Bayesian Statistics
+        %li Human Robot Interaction
+        %li Task Specification Inference
+        %li Bayesian Statistics 
         %li Safety and Artificial Intelligence
-        %li Controller Synthesis
 
     %section#code.border.border-2.border-primary
       %h2 Select Software Projects 💻
@@ -146,23 +145,10 @@
         
         %section
           %p 
-            %strong
-              WARNING! Not yet stable! Likely to dramatically change or bit-rot!
-            %br/
-            <a href="https://github.com/mvcisback/yasit">
-            yasit - (Y)et (A)nother (S)pecification (I)nference
-            (T)ool</a>: Yasit is a tool for learning "Boolean
-            Specifications" from demonstrations. In particular, we are
-            given a set of examples from an agent (also called the
-            teacher) who is performing some task in an environment and
-            ask what is the most likey task given the examples (also
-            called the demonstrations). This can be seen as an extension
-            of Maxium Entropy Inverse Reinforcement Learning to Boolean
-            Trajectory level rewards. This can also be seen as a tool
-            performing unsupervised specification mining in the presence
-            of noise. See "Learning Task Specifications from
-            Demonstrations".
-
+            <a href="https://github.com/mvcisback/DISS">
+            Demonstration Informed Specification Search
+            (DISS)</a>: a tool for learning "Boolean Task Specifications", in the form
+            of automata or logic, from demonstrations.
         %section
           %img.logo(loading="lazy" src="images/sifd.svg")/
           %p
@@ -170,8 +156,6 @@
               Gridworld Visualizer:
 
             Python Code for visualizing gridworlds used in my research
-            (see Learning Task Specifcations from Demonstrations and
-            the yasit tool).
 
         %section
           %img.logo(loading="lazy" src="https://raw.githubusercontent.com/mvcisback/monotone-bipartition/master/assets/bipartition.svg?sanitize=true")/
@@ -253,7 +237,7 @@
           %li
             <strong>Vazquez-Chanlatte, Marcell</strong>, Ameesh Shah, Gil Lederman, Sanjit A. Seshia. "Demonstration Informed Specification Search."
 
-            %a(href="paper/diss.pdf") paper
+            %a(href="papers/diss.pdf") paper
             %a(href="/DISS") slides
 
 
