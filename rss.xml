@@ -57,12 +57,21 @@
         <link>https://youtu.be/gYPutlOLqhc</link>
     </item>
 
-    </item>
+    <item>
       <title>I graduated!</title>
       <pubDate>Sunday, 22 May 2022 20:38:00 -0700</pubDate>
       <description>
         I am offically Dr. Marcell Vazquez-Chanlatte.
       </description>
+    </item>
+    <item>
+      <title>I started as an AI Research Scientist at Nissan!</title>
+      <pubDate>Sunday, 22 May 2022 20:38:00 -0700</pubDate>
+      <description>
+
+      </description>
+    </item>
+
 
   </channel>
 </rss>
