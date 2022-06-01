@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+a {
+    color: grey;
+}
+
+body {
+    margin: 0;
+    width: 8.5in;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+
+time {
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+header h1 {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 22pt;
+}
+
+header h2 span {
+    padding: 0 0.04in;
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1em;
+    margin: 0;
+}
+
+h3::before {
+    content: url("bar.svg");
+    margin: 0;
+    padding: 0;
+}
+
+section div {
+    display: flex;
+    justify-content: right;
+    padding: 0.2em;
+}
+
+#education l {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+section div li {
+    width: 6.5in;
+}
+
+strong {
+    font-weight: 500;
+}
+
+section {
+    padding-bottom: 0.5em;
+    margin-left: 0.4in;
+    margin-right: 0.4in;
+}
+
+ol {
+    margin-left: 0.15in;
+    margin-top: 4px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+ol > li {
+    margin-bottom: 0.5em;
+}
+
+ol ul li, ol ul li {
+    margin-bottom: 0.3em;
+}
+
+ol ul, ul ol {
+    margin-top: 0.2em;
+    padding-left: 1.2em;
+    padding-top: 0.1em;
+    border: black solid 1px;
+}
+
+#internships ol {
+    list-style: none;
+}
+
+#internships li {
+    display: flex;
+    justify-content: left;
+}
+
+#internships li div {
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 6in;
+}
+
+#internships time {
+    vertical-align: middle;
+    width: 5.5em;
+}
+
+#internships p {
+    padding: 0;
+    margin: 0;
+    width: 7in;
+}
+
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0 0;
+    margin: 0.5em 0;
+}
+
+#skills li {
+    margin-right: 1em;
+    width: max-content;
+}
+
+#skills li:after {
+    content: ",";
+}
+
+#skills li:nth-last-child(1):after {
+    content: ".";
+}
+
+#skills div {
+    justify-content: flex-start;
+    vertical-align: middle;
+}
+
+#skills ul {
+    padding: 0;
+}
+
+
+#skills ul:nth-of-type(1) {
+    list-style: inside;
+}
+
+#skills ul:nth-of-type(1) li:after {
+    content: "";
+}
+
+#skills ul:nth-of-type(1) li:nth-last-child(1):after {
+    content: "";
+}
+
+#skills li {
+    hyphens: auto;
+    word-break: break-all;
+}
+                      
+
+#skills ul:nth-of-type(1):before {
+    content: "Programming Languages:";
+    font-weight: 700;
+    margin-right: 1em;
+}
+
+#skills ul:nth-of-type(2):before {
+    content: "Classes:";
+    font-weight: 700;
+    margin-right: 1em;
+}
+
+#skills ul:nth-of-type(3):before {
+    content: "Classes/Subjects:";
+    font-weight: 700;
+    margin-right: 1em;
+}
+
+footer {
+    clear: both;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#publications ol{
+    padding-left: 1em;
+}
+
+#research-interests li {
+}
+
+
+#research-interests ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 2em;
+}
+
+em {
+    text-decoration: underline;
+}
+
+#education div{
+    display: flex;
+    justify-content: left;
+}
+
+#education div time {
+    width: 7em;
+}
