@@ -217,3 +217,32 @@ nav li:before {
 #publications strong {
     color: green;
 }
+
+#dissertation {
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-color: #e0dcf55e;
+    background: #00000082;
+}
+
+
+#dissertation h3 {
+    color: #ac8df2d9;
+
+}
+
+#dissertation p {
+    margin-bottom: 0.1em;
+    margin-top: 0.1em;
+}
+
+#dissertation img {
+    max-height: 8em;
+    padding: 0.2em;
+    border: none;
+}
+
+
