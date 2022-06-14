@@ -245,4 +245,22 @@ nav li:before {
     border: none;
 }
 
+.teaser {
+    border: none;
+    padding: 1em;
+    max-height: 13em;
+}
+
+#publications li {
+    padding: 2em;
+}
+
+#publications li:nth-child(even) {
+    background: #6c79ac29;
+}
+
+#publications li:nth-child(odd) {
+    background: #a3bd910d;
+}
+
 
