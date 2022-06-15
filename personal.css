@@ -245,10 +245,31 @@ nav li:before {
     border: none;
 }
 
-.teaser {
+#publications figure  {
+    display: flex;
+    justify-content: center;
+}
+
+#publications figure img {
     border: none;
     padding: 1em;
     max-height: 13em;
+}
+
+#publications figure img {
+    border: none;
+    padding: 1em;
+    max-height: 13em;
+}
+
+
+
+#publications ol {
+    list-style-position: inside;
+}
+
+#publications li:before {
+    font-size: 2em;
 }
 
 #publications li {
