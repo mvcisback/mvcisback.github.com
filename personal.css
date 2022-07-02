@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Karla');
 
 
 body {
@@ -12,6 +11,10 @@ body {
 
 body a, .pure-menu-link {
     color: #ff8451;
+}
+
+p, a, h1, h2, h3, figcaption, summary {
+    font-family: sans-serif;
 }
 
 body a:visited {
@@ -219,13 +222,9 @@ nav li:before {
 }
 
 #dissertation {
-    font-size: 1.2em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     text-align: center;
-    border-color: #e0dcf55e;
-    background: #00000082;
 }
 
 
@@ -237,6 +236,7 @@ nav li:before {
 #dissertation p {
     margin-bottom: 0.1em;
     margin-top: 0.1em;
+    max-width: unset;
 }
 
 #dissertation img {
