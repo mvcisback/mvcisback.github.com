@@ -1,6 +1,8 @@
 
 
 body {
+
+    background-color: #00000038;
     color: #dfd7d7;
     max-width: 100%;
     justify-content: center;
@@ -13,13 +15,15 @@ body a, .pure-menu-link {
     color: #ff8451;
 }
 
-p, a, h1, h2, h3, figcaption, summary {
+p, a, h1, h2, h3, figcaption, details, ol, ul{
     font-family: sans-serif;
 }
 
 body a:visited {
     color: #cb4b16;
 }
+
+section { width: 100%; }
 
 header {
     display: flex;
@@ -32,12 +36,15 @@ header img {
 }
 
 
-h1 {
-    font-size: 3em;
-}
+h1 { font-size: 3em; }
+h2 { font-size: 1.5em;}
+h3 { font-size: 1.2em;}
+p, a, figcaption { font-size: 1em; }
 
 main {
     max-width: 80em;
+    display: flex;
+    flex-direction: column;
 }
 
 img {
@@ -46,8 +53,10 @@ img {
 
 main > section {
     margin: 1em;
+    margin-left: 0;
+    width: 100%;
     padding: 1em;
-    background-color: #00000038;
+    border-bottom: 1px solid #80808042;
 }
 
 div#collab_imgs {
@@ -68,10 +77,6 @@ figure img {
     vertical-align: top;
 }
 
-h1, h2, h3 {
-    border-bottom:1px solid gray;
-    padding-bottom:3px;
-}
 
 h2 {
     margin: 0;
@@ -170,27 +175,19 @@ figure details {
 }
 
 #about {
-    margin: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 
-h2 {
-    text-align: center;
-}
-
-#code section:nth-child(even) {
-    background: #6c79ac29;
-}
-
-#code section:nth-child(odd) {
-    background: #aac89521;
-}
+h2, h3 { width: 100%; }
+h2, h3 { text-align: left; }
+h3 { opacity: 0.85; }
 
 #code section {
     padding: 0.5em;
+    border-bottom: 1px dotted grey;
 }
 
 nav {
@@ -211,27 +208,18 @@ nav li:before {
 
 #publications li {
     margin: 1em;
+    font-size: 0.9em;
 }
 
 #publications summary, #code summary {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 #publications strong {
-    color: green;
-}
-
-#dissertation {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    color: #006880;
 }
 
 
-#dissertation h3 {
-    color: #ac8df2d9;
-
-}
 
 #dissertation p {
     margin-bottom: 0.1em;
@@ -261,27 +249,4 @@ nav li:before {
     padding: 1em;
     max-height: 13em;
 }
-
-
-
-#publications ol {
-    list-style-position: inside;
-}
-
-#publications li:before {
-    font-size: 2em;
-}
-
-#publications li {
-    padding: 2em;
-}
-
-#publications li:nth-child(even) {
-    background: #6c79ac29;
-}
-
-#publications li:nth-child(odd) {
-    background: #a3bd910d;
-}
-
 
