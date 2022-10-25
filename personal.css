@@ -152,7 +152,8 @@ figure details {
 
 
 #profile img {
-    max-height: 12em;
+    border-radius: 0;
+    max-height: 9em;
 }
 
 #profile figure {
